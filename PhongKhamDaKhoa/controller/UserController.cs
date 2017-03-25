@@ -16,7 +16,6 @@ namespace PhongKhamDaKhoa.controller
             return View();
         }
 
-        /// -----------------------------------------------------------------------------
         /// <summary>
         /// gets an object from the database
         /// </summary>
