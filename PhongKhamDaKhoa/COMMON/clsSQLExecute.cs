@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace PhongKhamDaKhoa
+namespace CSKHHANOI
 {
     public class clsSQLExecute
     {

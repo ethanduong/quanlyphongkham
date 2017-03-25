@@ -9,7 +9,7 @@ using System.Diagnostics;
 //
 using System.Reflection;
 
-namespace PhongKhamDaKhoa
+namespace CSKHHANOI
 {
     public class Null
     {

@@ -17,7 +17,7 @@ using System.Text;
 using System.IO;
 //using System.Web.HttpResponse;
 
-namespace PhongKhamDaKhoa
+namespace CSKHHANOI
 {
     public class CommonHTTP : System.Web.UI.Page
 	{

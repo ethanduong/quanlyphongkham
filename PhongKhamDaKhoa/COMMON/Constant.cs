@@ -6,7 +6,7 @@ using System.Collections;
 using System.Data;
 using System.Diagnostics;
 
-namespace PhongKhamDaKhoa
+namespace CSKHHANOI
 {
     public class Constant
     {

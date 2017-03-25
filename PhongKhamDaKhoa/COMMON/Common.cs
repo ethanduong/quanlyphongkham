@@ -9,7 +9,7 @@ using System.Net;
 using System.Web.UI.WebControls;
 using System.Configuration;
 
-namespace PhongKhamDaKhoa
+namespace CSKHHANOI
 {
     public class Common
     {
@@ -941,33 +941,33 @@ namespace PhongKhamDaKhoa
         /// <param name="sUserID"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public static bool KiemTraUser_isAdmin(int sUserID)
-        {
-            try
-            {
-                string ErrMsg = null;
+        //public static bool KiemTraUser_isAdmin(int sUserID)
+        //{
+        //    try
+        //    {
+        //        string ErrMsg = null;
 
-                CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG objNguoiSD = new CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG();
-                string sqlstr = "SELECT  *  FROM EVNHN_CSKH_NGUOISUDUNG WHERE IsAdmin = 1 and UserID=" + sUserID.ToString();
-                IDataReader dr = CSKHHANOI.clsSQLExecute.getIDataReader(sqlstr, ref ErrMsg);
-                objNguoiSD = (CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG)CBO.FillObject(dr, typeof(CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG));
-                if (objNguoiSD == null)
-                {
-                    return false;
-                }
-                //--------
-                if (objNguoiSD.IsAdmin)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+        //        CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG objNguoiSD = new CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG();
+        //        string sqlstr = "SELECT  *  FROM EVNHN_CSKH_NGUOISUDUNG WHERE IsAdmin = 1 and UserID=" + sUserID.ToString();
+        //        IDataReader dr = CSKHHANOI.clsSQLExecute.getIDataReader(sqlstr, ref ErrMsg);
+        //        objNguoiSD = (CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG)CBO.FillObject(dr, typeof(CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG));
+        //        if (objNguoiSD == null)
+        //        {
+        //            return false;
+        //        }
+        //        //--------
+        //        if (objNguoiSD.IsAdmin)
+        //        {
+        //            return true;
+        //        }
+        //        return false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //    }
 
-        }
+        //}
 
         public static int GetRandom(int Min, int Max)
         {

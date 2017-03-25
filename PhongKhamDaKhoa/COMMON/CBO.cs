@@ -16,7 +16,7 @@ using System.Xml.Serialization;
 using System.Configuration;
 using System.ComponentModel;
 
-namespace PhongKhamDaKhoa
+namespace CSKHHANOI
 {
     public class CBO
     {
