@@ -13,5 +13,15 @@ namespace PhongKhamDaKhoa
         {
 
         }
+
+        protected void lnkAddNewCV_Click(object sender, EventArgs e)
+        {
+            pnlAddNewCV.Visible = true;
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
