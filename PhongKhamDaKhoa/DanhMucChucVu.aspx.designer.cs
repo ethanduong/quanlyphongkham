@@ -58,40 +58,40 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Label formHeader;
         
         /// <summary>
-        /// lbl_Ten_Nguoi_Thu control.
+        /// lblMaCV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Ten_Nguoi_Thu;
+        protected global::System.Web.UI.WebControls.Label lblMaCV;
         
         /// <summary>
-        /// txt_Ten_Nguoi_Thu control.
+        /// txtMaCV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Ten_Nguoi_Thu;
+        protected global::System.Web.UI.WebControls.TextBox txtMaCV;
         
         /// <summary>
-        /// Label5 control.
+        /// lblTenCV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label lblTenCV;
         
         /// <summary>
-        /// Label2 control.
+        /// txtTenCV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox txtTenCV;
         
         /// <summary>
         /// lblAction control.
