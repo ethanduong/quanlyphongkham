@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhMucChucVu.aspx.cs" Inherits="PhongKhamDaKhoa.DanhMucChucVu" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table style="width: 100%">
         <tr>
@@ -12,7 +13,7 @@
         <tr>
             <td colspan="3">
                 <asp:GridView ID="gvDSCV" runat="server" AutoGenerateColumns="False"
-                    Width="100%" AllowPaging="true" PageSize="10" CssClass="table table-striped">
+                    Width="100%" AllowPaging="true" PageSize="10" CssClass="table table-striped" OnRowCommand="gvDSCV_RowCommand">
                     <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
                     <Columns>
                         <asp:TemplateField HeaderText="STT">
@@ -40,19 +41,28 @@
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("MACV")%>'>Sửa  
+                                <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("MACV")%>'>  
                                 </asp:LinkButton>
                             </ItemTemplate>
-                            <ItemStyle CssClass="text-center" />
+                              <ItemStyle Width="55px" HorizontalAlign="Center" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa thông tin người thu"
-                                    runat="server" CommandArgument='<%# Bind("MACV")%>'>Xóa  
+                                <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Chức Vụ"
+                                    runat="server" CommandArgument='<%# Bind("MACV")%>' OnClientClick="javascript: return edit_confirm();"> 
                                 </asp:LinkButton>
-
+                                <script>
+                                    function edit_confirm() {
+                                        var result = confirm("Bạn có thực sự muốn xóa không?");
+                                        if (result) {
+                                            return true;
+                                        }
+                                        return false;
+                                    }
+                                </script>
+                                 
                             </ItemTemplate>
-                            <ItemStyle CssClass="text-center" />
+                           <ItemStyle Width="55px" HorizontalAlign="Center" />
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
@@ -69,6 +79,9 @@
             <td colspan="3" style="height: 21px; text-align: center"></td>
         </tr>
     </table>
+    <div class="row text-center" style="padding: 5px; font-size: 1.2em; font-weight: bold">
+        <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <asp:Panel ID="pnlAddNewCV" runat="server" class="panel col-lg-6 col-lg-offset-3 col-md-8"
@@ -103,11 +116,12 @@
                     <tr>
                         <td>
                             <asp:Label ID="lblAction" runat="server" Visible="False"></asp:Label>
-                            <asp:Label ID="lblID_NguoiThu" runat="server" Visible="False"></asp:Label>
                         </td>
                         <td>
-                            <asp:Button ID="btnInsert" runat="server" Text="Ghi " Width="85px" CssClass="btn btn-success" />
+                            <asp:Button ID="btnInsert" runat="server" Text="Thêm" Width="85px" CssClass="btn btn-success" OnClick="btnInsert_Click"/>
                             <asp:Button ID="btnCancel" runat="server" Text="Hủy" Width="95px" CssClass="btn btn-info" OnClick="btnCancel_Click" />
+                            <asp:Label ID="lblID_Update" runat="server" Visible="False"></asp:Label>
+
                         </td>
                     </tr>
                 </table>
