@@ -41,7 +41,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("MACV")%>'>  
+                                <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("MACV")%>' >  
                                 </asp:LinkButton>
                             </ItemTemplate>
                               <ItemStyle Width="55px" HorizontalAlign="Center" />
@@ -49,11 +49,11 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Chức Vụ"
-                                    runat="server" CommandArgument='<%# Bind("MACV")%>' OnClientClick="javascript: return edit_confirm();"> 
+                                    runat="server" CommandArgument='<%# Bind("MACV")%>' OnClientClick="javascript: return my_confirm();"> 
                                 </asp:LinkButton>
                                 <script>
-                                    function edit_confirm() {
-                                        var result = confirm("Bạn có thực sự muốn xóa không?");
+                                    function my_confirm() {
+                                        var result = confirm("Bạn có chắc chắn không?");
                                         if (result) {
                                             return true;
                                         }
@@ -118,7 +118,7 @@
                             <asp:Label ID="lblAction" runat="server" Visible="False"></asp:Label>
                         </td>
                         <td>
-                            <asp:Button ID="btnInsert" runat="server" Text="Thêm" Width="85px" CssClass="btn btn-success" OnClick="btnInsert_Click"/>
+                            <asp:Button ID="btnInsert" runat="server" Text="Ghi" Width="85px" CssClass="btn btn-success" OnClick="btnInsert_Click" OnClientClick="javascript: return my_confirm();"/>
                             <asp:Button ID="btnCancel" runat="server" Text="Hủy" Width="95px" CssClass="btn btn-info" OnClick="btnCancel_Click" />
                             <asp:Label ID="lblID_Update" runat="server" Visible="False"></asp:Label>
 
