@@ -37,6 +37,7 @@ namespace PhongKhamDaKhoa
 
         protected void lnkAddNewCV_Click(object sender, EventArgs e)
         {
+            formHeader.Text = "Thêm Mới Chức Vụ";
             lblAction.Text = "insert";
             txtMaCV.Text = string.Empty;
             txtTenCV.Text = string.Empty;
@@ -92,7 +93,7 @@ namespace PhongKhamDaKhoa
                 {
                     pnlAddNewCV.Visible = true;
                     txtMaCV.Text = cvent.MACV.ToString();
-                    txtTenCV.Text = cvent.TENCV;
+                    txtTenCV.Text = cvent.TEN;
                    
                 }
                 else
@@ -122,6 +123,7 @@ namespace PhongKhamDaKhoa
 
         protected void btnInsert_Click(object sender, EventArgs e)
         {
+           
             if (lblAction.Text == "insert")
             {
                 clsChucVu_entity cvent = new clsChucVu_entity();
@@ -129,12 +131,13 @@ namespace PhongKhamDaKhoa
                 if (validate())
                 {
                     cvent.MACV = int.Parse(txtMaCV.Text);
-                    cvent.TENCV = txtTenCV.Text;
+                    cvent.TEN = txtTenCV.Text;
                     controller.Insert(cvent, ref errMsg);
                     if (errMsg == string.Empty)
                     {
                         lblMsg.Text = "Thêm mới thành công !";
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                        pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
                         txtMaCV.Text = string.Empty;
                         txtTenCV.Text = string.Empty;
@@ -153,7 +156,7 @@ namespace PhongKhamDaKhoa
                 clsChucVu_controller controller = new clsChucVu_controller();
                 if (validate())
                 {
-                    cvent.TENCV = txtTenCV.Text;
+                    cvent.TEN = txtTenCV.Text;
                     cvent.MACV = int.Parse(txtMaCV.Text);
                     controller.Update(cvent, ref errMsg);
 
@@ -175,6 +178,25 @@ namespace PhongKhamDaKhoa
                 }
                 else { return; }
 
+            }
+        }
+
+        protected void gvDSCV_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                gvDSCV.PageIndex = e.NewPageIndex;
+                int trang_thu = e.NewPageIndex;
+                int so_dong = gvDSCV.PageSize;       //moi trang co bao nhieu don
+                _stt = trang_thu * so_dong + 1;
+                //==================
+
+                DataTable dtcv = (DataTable)ViewState["dtcv"];
+                gvDSCV.DataSource = dtcv;
+                gvDSCV.DataBind();
+            }
+            catch (Exception)
+            {
             }
         }
 

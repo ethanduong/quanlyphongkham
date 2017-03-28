@@ -8,22 +8,22 @@ namespace PhongKhamDaKhoa.entity
     public class clsChucVu_entity
     {
         private int _MACV;
-        private string _TENCV;
+        private string _TEN;
 
         public int MACV
         {
             get { return _MACV; }
             set { _MACV = value; }
         }
-        public string TENCV
+        public string TEN
         {
-            get { return _TENCV; }
-            set { _TENCV = value; }
+            get { return _TEN; }
+            set { _TEN = value; }
         }
         public clsChucVu_entity()
         {
             _MACV = 0;
-            _TENCV = string.Empty;
+            _TEN = string.Empty;
         }
     }
   

@@ -13,7 +13,7 @@
         <tr>
             <td colspan="3">
                 <asp:GridView ID="gvDSCV" runat="server" AutoGenerateColumns="False"
-                    Width="100%" AllowPaging="true" PageSize="10" CssClass="table table-striped" OnRowCommand="gvDSCV_RowCommand">
+                    Width="100%" AllowPaging="true" PageSize="10" CssClass="table table-striped" OnRowCommand="gvDSCV_RowCommand" OnPageIndexChanging="gvDSCV_PageIndexChanging">
                     <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
                     <Columns>
                         <asp:TemplateField HeaderText="STT">
