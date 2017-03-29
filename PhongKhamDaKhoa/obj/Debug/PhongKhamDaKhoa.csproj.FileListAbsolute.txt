@@ -19,3 +19,24 @@ c:\users\admin\documents\visual studio 2013\Projects\QuanLyPhongKham\PhongKhamDa
 c:\users\admin\documents\visual studio 2013\Projects\QuanLyPhongKham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.csprojResolveAssemblyReference.cache
 c:\users\admin\documents\visual studio 2013\Projects\QuanLyPhongKham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.dll
 c:\users\admin\documents\visual studio 2013\Projects\QuanLyPhongKham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.pdb
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\PhongKhamDaKhoa.dll.config
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\PhongKhamDaKhoa.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\PhongKhamDaKhoa.pdb
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Antlr3.Runtime.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Newtonsoft.Json.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.Optimization.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\WebGrease.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.Optimization.xml
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Antlr3.Runtime.pdb
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Newtonsoft.Json.xml
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.dll
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.pdb
