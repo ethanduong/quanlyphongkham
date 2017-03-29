@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhMucChucVu.aspx.cs" Inherits="PhongKhamDaKhoa.DanhMucChucVu" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <table style="width: 100%">
+     <table style="width: 100%" id="tblcv">
         <tr>
             <td style="text-align: center" colspan="3">
                 <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="Blue"
@@ -95,15 +94,7 @@
                     <tr>
                         <td colspan="2" style="text-align: center"></td>
                     </tr>
-                    <tr>
-                        <td style="text-align: right">
-                            <asp:Label ID="lblMaCV" runat="server" Text="Mã Chức Vụ " CssClass="Normal_Label"></asp:Label>(<span
-                                style="color: Red">*</span>):
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtMaCV" runat="server" CssClass="form-control input-sm"></asp:TextBox>
-                        </td>
-                    </tr>
+                   
                     <tr>
                         <td style="text-align: right">
                             <asp:Label ID="lblTenCV" runat="server" Text="Tên Chức Vụ" CssClass="Normal_Label"></asp:Label>(<span
@@ -128,5 +119,6 @@
             </asp:Panel>
         </div>
     </div>
+
 </asp:Content>
 
