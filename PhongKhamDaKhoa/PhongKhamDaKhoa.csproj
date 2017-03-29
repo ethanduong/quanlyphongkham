@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -4461,6 +4462,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="COMMON\Constant.cs" />
+    <Compile Include="COMMON\Encryption.cs" />
     <Compile Include="COMMON\Null.cs" />
     <Compile Include="controller\clsChucVu_controller.cs" />
     <Compile Include="controller\clsNhanVien_controller.cs" />

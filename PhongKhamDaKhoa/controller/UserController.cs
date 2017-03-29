@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data;
-using CSKHHANOI;
+
 
 namespace PhongKhamDaKhoa.controller
 {
@@ -28,8 +28,8 @@ namespace PhongKhamDaKhoa.controller
         {
             try
             {
-                string sqlstr = "SELECT  *  FROM EVNHN_CSKH_NGUOISUDUNG WHERE UserID=" + sUserID.ToString();
-                IDataReader dr = CSKHHANOI.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
+                string sqlstr = "SELECT  *  FROM dbo.USER WHERE UserID=" + sUserID.ToString();
+                IDataReader dr = clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
                 UserController obj = new UserController();
                 obj = (UserController)CBO.FillObject(dr, typeof(UserController));
                 return obj;
@@ -46,27 +46,13 @@ namespace PhongKhamDaKhoa.controller
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[11];
-                prms[i] = new System.Data.SqlClient.SqlParameter("@UserID", obj.UserID);
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[3];
+                prms[i] = new System.Data.SqlClient.SqlParameter("@Username", obj.Username);
                 i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@UserName", obj.UserName);
+                prms[i] = new System.Data.SqlClient.SqlParameter("@Pass", obj.Pass);
                 i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@FullName", obj.FullName);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@PasswordEncode", obj.PasswordEncode);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@ChucVu", obj.ChucVu);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@ID_PB", obj.ID_PB);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@IsAdmin", obj.IsAdmin);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@IsSupperAdmin", obj.IsSupperAdmin);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@IsEnable", obj.IsEnable);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@MaDV", obj.MaDV);
-                CSKHHANOI.clsSQLExecute.ExcuteSP("sp_Insert_EVNHN_CSKH_NGUOISUDUNG", ref prms, 10, ref errMsg);
+                prms[i] = new System.Data.SqlClient.SqlParameter("@HoTen", obj.HoTen);
+                clsSQLExecute.ExcuteSP("sp_Insert_USER", ref prms, 10, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
