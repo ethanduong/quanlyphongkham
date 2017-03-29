@@ -4466,6 +4466,7 @@
     <Compile Include="COMMON\Null.cs" />
     <Compile Include="controller\clsChucVu_controller.cs" />
     <Compile Include="controller\clsNhanVien_controller.cs" />
+    <Compile Include="controller\clsPhongBan_controller.cs" />
     <Compile Include="DanhMucChucVu.aspx.cs">
       <DependentUpon>DanhMucChucVu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4517,6 +4518,7 @@
     </Compile>
     <Compile Include="entity\clsChucVu_entity.cs" />
     <Compile Include="entity\clsNhanVien_entity.cs" />
+    <Compile Include="entity\clsPhongBan_entity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
