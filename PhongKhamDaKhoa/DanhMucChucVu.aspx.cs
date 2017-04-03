@@ -29,7 +29,7 @@ namespace PhongKhamDaKhoa
 
             string strSQL = "SELECT * FROM dbo.CHUCVU";
             DataTable dt = new DataTable();
-            dt = CSKHHANOI.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
+            dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
             gvDSCV.DataSource = dt;
             gvDSCV.DataBind();
             ViewState["dtcv"] = dt;
@@ -37,17 +37,19 @@ namespace PhongKhamDaKhoa
 
         protected void lnkAddNewCV_Click(object sender, EventArgs e)
         {
+            
             formHeader.Text = "Thêm Mới Chức Vụ";
             lblAction.Text = "insert";
-            txtMaCV.Text = string.Empty;
+            lblMsg.Text = string.Empty;
             txtTenCV.Text = string.Empty;
             pnlAddNewCV.Visible = true;
-            txtMaCV.Focus();
+
+           
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            txtMaCV.Text = string.Empty;
+           
             txtTenCV.Text = string.Empty;
             pnlAddNewCV.Visible = false;
             lblMsg.Text = string.Empty;
@@ -56,13 +58,7 @@ namespace PhongKhamDaKhoa
         protected bool validate()
         {
 
-            if (txtMaCV.Text == string.Empty)
-            {
-                lblMsg.Text = "Mã chức vụ không được để trống !";
-                lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
-                txtMaCV.Focus();
-                return false;
-            }
+           
 
             if (txtTenCV.Text == string.Empty)
             {
@@ -80,11 +76,11 @@ namespace PhongKhamDaKhoa
         {
             clsChucVu_entity cvent = new clsChucVu_entity();
             clsChucVu_controller controller = new clsChucVu_controller();
-            int id = CSKHHANOI.Common.ConvertObj2Int(e.CommandArgument.ToString());
+            int id = QLPHONGKHAM.Common.ConvertObj2Int(e.CommandArgument.ToString());
             if (e.CommandName.ToString() == "cmdEdit")
             {
                 lblMsg.Text = string.Empty;
-                txtMaCV.Focus();
+              
                 lblID_Update.Text = e.CommandArgument.ToString();
                 lblAction.Text = "update";
                 formHeader.Text = "Cập Nhập Chức Vụ";
@@ -92,7 +88,7 @@ namespace PhongKhamDaKhoa
                 if (errMsg == string.Empty)
                 {
                     pnlAddNewCV.Visible = true;
-                    txtMaCV.Text = cvent.MACV.ToString();
+                  
                     txtTenCV.Text = cvent.TEN;
                    
                 }
@@ -104,6 +100,8 @@ namespace PhongKhamDaKhoa
             }
             if (e.CommandName.ToString() == "cmdDelete")
             {
+                pnlAddNewCV.Visible = false;
+                lblMsg.Text = string.Empty;
                 controller.Delete(id.ToString(), ref errMsg);
                 if (errMsg == string.Empty)
                 {
@@ -114,7 +112,7 @@ namespace PhongKhamDaKhoa
                 }
                 else
                 {
-                    lblMsg.Text = "Không thể xóa phân loại khách hàng !";
+                    lblMsg.Text = "Không thể xóa chức vụ !";
                     lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                 }
                 LoadDataToGridView();
@@ -128,9 +126,10 @@ namespace PhongKhamDaKhoa
             {
                 clsChucVu_entity cvent = new clsChucVu_entity();
                 clsChucVu_controller controller = new clsChucVu_controller();
+               
                 if (validate())
                 {
-                    cvent.MACV = int.Parse(txtMaCV.Text);
+
                     cvent.TEN = txtTenCV.Text;
                     controller.Insert(cvent, ref errMsg);
                     if (errMsg == string.Empty)
@@ -139,7 +138,7 @@ namespace PhongKhamDaKhoa
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                         pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
-                        txtMaCV.Text = string.Empty;
+                      
                         txtTenCV.Text = string.Empty;
                     }
                     else
@@ -156,8 +155,10 @@ namespace PhongKhamDaKhoa
                 clsChucVu_controller controller = new clsChucVu_controller();
                 if (validate())
                 {
+                    cvent.MACV = QLPHONGKHAM.Common.ConvertObj2Int(lblID_Update.Text);
                     cvent.TEN = txtTenCV.Text;
-                    cvent.MACV = int.Parse(txtMaCV.Text);
+                   
+                  
                     controller.Update(cvent, ref errMsg);
 
                     if (errMsg == string.Empty)
@@ -167,7 +168,7 @@ namespace PhongKhamDaKhoa
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                         pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
-                        txtMaCV.Text = string.Empty;
+                     
                         txtTenCV.Text = string.Empty;
                     }
                     else
@@ -199,6 +200,8 @@ namespace PhongKhamDaKhoa
             {
             }
         }
+
+        
 
 
     }

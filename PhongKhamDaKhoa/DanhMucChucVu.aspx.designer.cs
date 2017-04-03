@@ -67,24 +67,6 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Label formHeader;
         
         /// <summary>
-        /// lblMaCV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMaCV;
-        
-        /// <summary>
-        /// txtMaCV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMaCV;
-        
-        /// <summary>
         /// lblTenCV control.
         /// </summary>
         /// <remarks>

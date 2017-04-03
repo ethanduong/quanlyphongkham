@@ -85,5 +85,4 @@ namespace PhongKhamDaKhoa.entity
             _TIENSU = string.Empty;
         }
     }
-    }
 }

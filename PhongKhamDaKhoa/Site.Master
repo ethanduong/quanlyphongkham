@@ -28,13 +28,14 @@
     <!-- bootstrap-daterangepicker -->
     <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Datatables -->
-    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet" />
+    <link href="css/master.css" rel="stylesheet" />
 </head>
 <body class="nav-md">
     <form runat="server" class="container body">
@@ -340,24 +341,42 @@
         <script src="vendors/moment/min/moment.min.js"></script>
         <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
         <!-- Datatables -->
-        <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-        <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-        <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-        <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-        <script src="../vendors/jszip/dist/jszip.min.js"></script>
-        <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-        <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+        <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+        <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+        <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+        <script src="vendors/jszip/dist/jszip.min.js"></script>
+        <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+        <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+        <!-- bootstrap-wysiwyg -->
+        <script src="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+        <script src="vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+        <script src="vendors/google-code-prettify/src/prettify.js"></script>
+        <!-- jQuery Tags Input -->
+        <script src="vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+        <!-- Switchery -->
+        <script src="vendors/switchery/dist/switchery.min.js"></script>
+        <!-- Select2 -->
+        <script src="vendors/select2/dist/js/select2.full.min.js"></script>
+        <!-- Parsley -->
+        <script src="vendors/parsleyjs/dist/parsley.min.js"></script>
+        <!-- Autosize -->
+        <script src="vendors/autosize/dist/autosize.min.js"></script>
+        <!-- jQuery autocomplete -->
+        <script src="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+        <!-- starrr -->
+        <script src="vendors/starrr/dist/starrr.js"></script>
         <script>
             $(document).ready(function () {
-                $('#demo').DataTable({
+                $(".grv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable({
                     "language": {
                         "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
                         "zeroRecords": "Không tìm thấy",

@@ -17,7 +17,7 @@ using System.Text;
 using System.IO;
 //using System.Web.HttpResponse;
 
-namespace CSKHHANOI
+namespace QLPHONGKHAM
 {
     public class CommonHTTP : System.Web.UI.Page
 	{
@@ -31,7 +31,7 @@ namespace CSKHHANOI
 		{
 			try {
 
-				int sCrr_UserID_Login = CSKHHANOI.Common.ConvertObj2Int(Session[CSKHHANOI.Constant.SESSION_NAMES.ID_UserLogin].ToString());
+				int sCrr_UserID_Login = QLPHONGKHAM.Common.ConvertObj2Int(Session[QLPHONGKHAM.Constant.SESSION_NAMES.ID_UserLogin].ToString());
 				return sCrr_UserID_Login;
 				//----------
 

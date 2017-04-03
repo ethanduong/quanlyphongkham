@@ -9,7 +9,7 @@ using System.Net;
 using System.Web.UI.WebControls;
 using System.Configuration;
 
-namespace CSKHHANOI
+namespace QLPHONGKHAM
 {
     public class Common
     {
@@ -32,12 +32,12 @@ namespace CSKHHANOI
 
             if (strWhere.Trim() == string.Empty)
             {
-                dtID_max = CSKHHANOI.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName, "temTB", ref errMsg);
+                dtID_max = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName, "temTB", ref errMsg);
 
             }
             else
             {
-                dtID_max = CSKHHANOI.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName + " where " + strWhere, "temTB", ref errMsg);
+                dtID_max = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName + " where " + strWhere, "temTB", ref errMsg);
 
             }
 
@@ -63,12 +63,12 @@ namespace CSKHHANOI
 
             if (strWhere.Trim() == string.Empty)
             {
-                dtID_max = CSKHHANOI.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName, "temTB", ref errMsg);
+                dtID_max = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName, "temTB", ref errMsg);
 
             }
             else
             {
-                dtID_max = CSKHHANOI.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName + " where " + strWhere, "temTB", ref errMsg);
+                dtID_max = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB("select max(" + colNameID + " ) as max_ID   from " + tableName + " where " + strWhere, "temTB", ref errMsg);
 
             }
 
@@ -138,7 +138,7 @@ namespace CSKHHANOI
                 string sqlStr = null;
                 sqlStr = "SELECT '' as " + data_field + ",'' as " + display_field + " FROM " + table_nameInput + " Union SELECT " + data_field + "," + display_field + " FROM " + table_nameInput;
 
-                drp.DataSource = CSKHHANOI.clsSQLExecute.LoadDataFromDB(sqlStr, "tem_table", ref errMsg);
+                drp.DataSource = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(sqlStr, "tem_table", ref errMsg);
 
                 drp.DataValueField = data_field;
                 drp.DataTextField = display_field;
@@ -164,7 +164,7 @@ namespace CSKHHANOI
                 string sqlStr = null;
                 sqlStr = "SELECT '' as " + data_field + ",'' as " + display_field + " FROM " + table_nameInput + " Union SELECT " + data_field + "," + display_field + " FROM " + table_nameInput + " WHERE " + whereColumn + "='" + whereclause + "'";
 
-                drp.DataSource = CSKHHANOI.clsSQLExecute.LoadDataFromDB(sqlStr, "tem_table", ref errMsg);
+                drp.DataSource = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(sqlStr, "tem_table", ref errMsg);
 
                 drp.DataValueField = data_field;
                 drp.DataTextField = display_field;
@@ -189,7 +189,7 @@ namespace CSKHHANOI
                 string sqlStr = null;
                 sqlStr = "SELECT '' as " + data_field + ",'' as " + display_field + " FROM " + table_nameInput + " Union SELECT " + data_field + "," + display_field + " FROM " + table_nameInput + " WHERE " + whereColumn + "=" + whereclause;
 
-                drp.DataSource = CSKHHANOI.clsSQLExecute.LoadDataFromDB(sqlStr, "tem_table", ref errMsg);
+                drp.DataSource = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(sqlStr, "tem_table", ref errMsg);
 
                 drp.DataValueField = data_field;
                 drp.DataTextField = display_field;
@@ -291,9 +291,9 @@ namespace CSKHHANOI
         {
             try
             {
-                if (ws_type == CSKHHANOI.Constant.WEB_SERVICE_TYPE.WS_WebReference)
+                if (ws_type == QLPHONGKHAM.Constant.WEB_SERVICE_TYPE.WS_WebReference)
                 {
-                    return ConfigurationManager.AppSettings[CSKHHANOI.Constant.VARIABLES.WebAdress_WS_CMIS_EVNHN].ToString();
+                    return ConfigurationManager.AppSettings[QLPHONGKHAM.Constant.VARIABLES.WebAdress_WS_CMIS_EVNHN].ToString();
                 }
 
                 return string.Empty;
@@ -352,7 +352,7 @@ namespace CSKHHANOI
 
             try
             {
-                return CSKHHANOI.Common.ConvertString2Boolean(ConfigurationManager.AppSettings["IsUseProxy"].ToString());
+                return QLPHONGKHAM.Common.ConvertString2Boolean(ConfigurationManager.AppSettings["IsUseProxy"].ToString());
 
             }
             catch (Exception ex)
@@ -371,7 +371,7 @@ namespace CSKHHANOI
 
             try
             {
-                return CSKHHANOI.Common.ConvertString2Boolean(ConfigurationManager.AppSettings["IS_SPECIFY_USER"].ToString());
+                return QLPHONGKHAM.Common.ConvertString2Boolean(ConfigurationManager.AppSettings["IS_SPECIFY_USER"].ToString());
 
             }
             catch (Exception ex)
@@ -428,11 +428,11 @@ namespace CSKHHANOI
         //public static void InitForWebService(ref WebCSKHMOBI.WS_WebReference.Service objWs, string ws_type)
         //{
         //    bool is_use_proxy = isUseProxy();
-        //    if (ws_type == CSKHHANOI.Constant.WEB_SERVICE_TYPE.WS_WebReference)
+        //    if (ws_type == QLPHONGKHAM.Constant.WEB_SERVICE_TYPE.WS_WebReference)
         //    {
         //        WebCSKHMOBI.WS_WebReference.Service obj_tem = objWs as WebCSKHMOBI.WS_WebReference.Service;
 
-        //        obj_tem.Url = GetURLAddress_WS_CMIS_EVNHN(CSKHHANOI.Constant.WEB_SERVICE_TYPE.WS_WebReference);
+        //        obj_tem.Url = GetURLAddress_WS_CMIS_EVNHN(QLPHONGKHAM.Constant.WEB_SERVICE_TYPE.WS_WebReference);
         //        // 
         //        if (is_use_proxy)
         //        {
@@ -590,22 +590,22 @@ namespace CSKHHANOI
             int crrMonth = 0;
             int crrYear = 0;
 
-            DataTable dtDate = CSKHHANOI.clsSQLExecute.LoadDataFromDB(strSQL, "temTB", ref errMsg);
-            crrDay = CSKHHANOI.Common.ConvertObj2Int(dtDate.Rows[0]["crrDay"].ToString());
+            DataTable dtDate = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "temTB", ref errMsg);
+            crrDay = QLPHONGKHAM.Common.ConvertObj2Int(dtDate.Rows[0]["crrDay"].ToString());
 
-            crrMonth = CSKHHANOI.Common.ConvertObj2Int(dtDate.Rows[0]["crrMonth"].ToString());
-            crrYear = CSKHHANOI.Common.ConvertObj2Int(dtDate.Rows[0]["crrYear"].ToString());
+            crrMonth = QLPHONGKHAM.Common.ConvertObj2Int(dtDate.Rows[0]["crrMonth"].ToString());
+            crrYear = QLPHONGKHAM.Common.ConvertObj2Int(dtDate.Rows[0]["crrYear"].ToString());
 
-            int crrHour = CSKHHANOI.Common.ConvertObj2Int(dtDate.Rows[0]["crrHour"].ToString());
-            int crrMinute = CSKHHANOI.Common.ConvertObj2Int(dtDate.Rows[0]["crrMinute"].ToString());
-            int crrSecond = CSKHHANOI.Common.ConvertObj2Int(dtDate.Rows[0]["crrSecond"].ToString());
-            int crrMiliSecond = CSKHHANOI.Common.ConvertObj2Int(dtDate.Rows[0]["crrMiliSecond"].ToString());
+            int crrHour = QLPHONGKHAM.Common.ConvertObj2Int(dtDate.Rows[0]["crrHour"].ToString());
+            int crrMinute = QLPHONGKHAM.Common.ConvertObj2Int(dtDate.Rows[0]["crrMinute"].ToString());
+            int crrSecond = QLPHONGKHAM.Common.ConvertObj2Int(dtDate.Rows[0]["crrSecond"].ToString());
+            int crrMiliSecond = QLPHONGKHAM.Common.ConvertObj2Int(dtDate.Rows[0]["crrMiliSecond"].ToString());
 
-            int numRandom = CSKHHANOI.Common.GetRandom(1, 9999);
+            int numRandom = QLPHONGKHAM.Common.GetRandom(1, 9999);
             System.Threading.Thread.Sleep(10);
             // dung de dam bao 2 lan goi bao gio cung khac nhau
 
-            return CSKHHANOI.Common.StandalizeString(crrYear.ToString(), 4) + sSeparate + CSKHHANOI.Common.StandalizeString(crrMonth.ToString(), 2) + sSeparate + CSKHHANOI.Common.StandalizeString(crrDay.ToString(), 2) + sSeparate + CSKHHANOI.Common.StandalizeString(crrHour.ToString(), 2) + sSeparate + CSKHHANOI.Common.StandalizeString(crrMinute.ToString(), 2) + sSeparate + CSKHHANOI.Common.StandalizeString(crrSecond.ToString(), 2) + sSeparate + CSKHHANOI.Common.StandalizeString(crrMiliSecond.ToString(), 4) + CSKHHANOI.Common.StandalizeString(numRandom.ToString(), 4) + "_" + sID_User.ToString();
+            return QLPHONGKHAM.Common.StandalizeString(crrYear.ToString(), 4) + sSeparate + QLPHONGKHAM.Common.StandalizeString(crrMonth.ToString(), 2) + sSeparate + QLPHONGKHAM.Common.StandalizeString(crrDay.ToString(), 2) + sSeparate + QLPHONGKHAM.Common.StandalizeString(crrHour.ToString(), 2) + sSeparate + QLPHONGKHAM.Common.StandalizeString(crrMinute.ToString(), 2) + sSeparate + QLPHONGKHAM.Common.StandalizeString(crrSecond.ToString(), 2) + sSeparate + QLPHONGKHAM.Common.StandalizeString(crrMiliSecond.ToString(), 4) + QLPHONGKHAM.Common.StandalizeString(numRandom.ToString(), 4) + "_" + sID_User.ToString();
 
             //Return Now()
         }
@@ -874,8 +874,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -911,8 +911,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -947,10 +947,10 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG objNguoiSD = new CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_NGUOISUDUNG objNguoiSD = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_NGUOISUDUNG();
         //        string sqlstr = "SELECT  *  FROM EVNHN_CSKH_NGUOISUDUNG WHERE IsAdmin = 1 and UserID=" + sUserID.ToString();
-        //        IDataReader dr = CSKHHANOI.clsSQLExecute.getIDataReader(sqlstr, ref ErrMsg);
-        //        objNguoiSD = (CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG)CBO.FillObject(dr, typeof(CSKHHANOI.Entities.clsEVNHN_CSKH_NGUOISUDUNG));
+        //        IDataReader dr = QLPHONGKHAM.clsSQLExecute.getIDataReader(sqlstr, ref ErrMsg);
+        //        objNguoiSD = (QLPHONGKHAM.Entities.clsEVNHN_CSKH_NGUOISUDUNG)CBO.FillObject(dr, typeof(QLPHONGKHAM.Entities.clsEVNHN_CSKH_NGUOISUDUNG));
         //        if (objNguoiSD == null)
         //        {
         //            return false;
@@ -1426,8 +1426,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1453,8 +1453,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1480,8 +1480,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1507,8 +1507,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1534,8 +1534,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1561,8 +1561,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1588,8 +1588,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1615,8 +1615,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1642,8 +1642,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1669,8 +1669,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1696,8 +1696,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1723,8 +1723,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1750,8 +1750,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1777,8 +1777,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1804,8 +1804,8 @@ namespace CSKHHANOI
         //    {
         //        string ErrMsg = null;
 
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN();
-        //        CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new CSKHHANOI.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN objPhanQuyen = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN();
+        //        QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller objPhanQuyen_Ctl = new QLPHONGKHAM.Entities.clsEVNHN_CSKH_PHANQUYEN_Controller();
 
         //        objPhanQuyen = objPhanQuyen_Ctl.GetData(sUserID, ref ErrMsg);
         //        if (objPhanQuyen == null)
@@ -1831,7 +1831,7 @@ namespace CSKHHANOI
         {
             try
             {
-                CSKHHANOI.CommonHTTP objCommmonHTTP = new CSKHHANOI.CommonHTTP();
+                QLPHONGKHAM.CommonHTTP objCommmonHTTP = new QLPHONGKHAM.CommonHTTP();
 
                 return objCommmonHTTP.GetCurrent_UserID_Login();
             }

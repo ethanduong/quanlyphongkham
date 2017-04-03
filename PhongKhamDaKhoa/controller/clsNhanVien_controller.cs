@@ -6,7 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-namespace CSKHHANOI.Entities
+using QLPHONGKHAM;
+namespace QLPHONGKHAM.Entities
 {
     public class clsNhanVien_entity_Controller
     {
@@ -23,8 +24,8 @@ namespace CSKHHANOI.Entities
         {
             try
             {
-                string sqlstr = "SELECT  *  FROM EVNHN_CSKH_NGUOISUDUNG WHERE MANV=" + MANV;
-                IDataReader dr = CSKHHANOI.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
+                string sqlstr = "SELECT  *  FROM NHANVIEN WHERE MANV=" + MANV;
+                IDataReader dr = QLPHONGKHAM.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
                 clsNhanVien_entity obj = new clsNhanVien_entity();
                 obj = (clsNhanVien_entity)CBO.FillObject(dr, typeof(clsNhanVien_entity));
                 return obj;
@@ -54,7 +55,7 @@ namespace CSKHHANOI.Entities
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MAPB", obj.MAPB);
 
-                CSKHHANOI.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 5, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 5, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -62,10 +63,10 @@ namespace CSKHHANOI.Entities
                 //    clsEVNHN_CSKH_PHANQUYEN_Controller objPQ_ctrl = new clsEVNHN_CSKH_PHANQUYEN_Controller();
                 //    objPQ.UserID = obj.UserID;
                 //    objPQ.ID_PB = obj.ID_PB;
-                //    objPQ.UserID_Act = CSKHHANOI.Common.GetUserID();
+                //    objPQ.UserID_Act = QLPHONGKHAM.Common.GetUserID();
                 //    objPQ_ctrl.Insert(objPQ, ref errMsg);
 
-                //    LichSu_NguoiDung.clsEVNHN_CSKH_LICHSU_NGUOIDUNG.Insert("dbo.EVNHN_CSKH_NGUOISUDUNG", 1, DateTime.Now, obj.UserID.ToString(), CSKHHANOI.Common.GetUserID(), ref errMsg);
+                //    LichSu_NguoiDung.clsEVNHN_CSKH_LICHSU_NGUOIDUNG.Insert("dbo.NHANVIEN", 1, DateTime.Now, obj.UserID.ToString(), QLPHONGKHAM.Common.GetUserID(), ref errMsg);
                 //}
             }
             catch (Exception ex)
@@ -93,7 +94,7 @@ namespace CSKHHANOI.Entities
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MAPB", obj.MAPB);
 
-                CSKHHANOI.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 6, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 6, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -102,10 +103,10 @@ namespace CSKHHANOI.Entities
                 //    objPQ = objPQ_ctrl.GetData(obj.UserID, ref errMsg);
                 //    objPQ.UserID = obj.UserID;
                 //    objPQ.ID_PB = obj.ID_PB;
-                //    objPQ.UserID_Act = CSKHHANOI.Common.GetUserID();
+                //    objPQ.UserID_Act = QLPHONGKHAM.Common.GetUserID();
                 //    objPQ_ctrl.Update(objPQ, ref errMsg);
 
-                //    LichSu_NguoiDung.clsEVNHN_CSKH_LICHSU_NGUOIDUNG.Insert("dbo.EVNHN_CSKH_NGUOISUDUNG", 2, DateTime.Now, obj.UserID.ToString(), CSKHHANOI.Common.GetUserID(), ref errMsg);
+                //    LichSu_NguoiDung.clsEVNHN_CSKH_LICHSU_NGUOIDUNG.Insert("dbo.NHANVIEN", 2, DateTime.Now, obj.UserID.ToString(), QLPHONGKHAM.Common.GetUserID(), ref errMsg);
                 //}
             }
             catch (Exception ex)
@@ -114,17 +115,16 @@ namespace CSKHHANOI.Entities
             }
         }
         //-----------------------------delete  object to database  -------------------
-        public void Delete(int sUserID, ref string errMsg)
+        public void Delete(int MANV, ref string errMsg)
         {
-            string sqlstr = "DELETE  FROM EVNHN_CSKH_NGUOISUDUNG WHERE UserID=" + sUserID.ToString() +
-                            "DELETE  FROM dbo.EVNHN_CSKH_PHANQUYEN WHERE UserID=" + sUserID.ToString();
-            CSKHHANOI.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
+            string sqlstr = "DELETE  FROM NHANVIEN WHERE MANV=" + MANV;
+            QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
             //if (string.IsNullOrEmpty(errMsg))
             //{
             //    clsEVNHN_CSKH_PHANQUYEN_Controller objPQ_ctrl = new clsEVNHN_CSKH_PHANQUYEN_Controller();
             //    objPQ_ctrl.Delete(sUserID, ref errMsg);
 
-            //    LichSu_NguoiDung.clsEVNHN_CSKH_LICHSU_NGUOIDUNG.Insert("dbo.EVNHN_CSKH_NGUOISUDUNG", 3, DateTime.Now, sUserID.ToString(), CSKHHANOI.Common.GetUserID(), ref errMsg);
+            //    LichSu_NguoiDung.clsEVNHN_CSKH_LICHSU_NGUOIDUNG.Insert("dbo.NHANVIEN", 3, DateTime.Now, sUserID.ToString(), QLPHONGKHAM.Common.GetUserID(), ref errMsg);
             //}
         }
 
@@ -147,25 +147,25 @@ namespace CSKHHANOI.Entities
                 {
                     if (sOrderBy.Trim() == string.Empty)
                     {
-                        sqlstr = "SELECT  *  FROM  EVNHN_CSKH_NGUOISUDUNG";
+                        sqlstr = "SELECT  *  FROM  NHANVIEN";
                     }
                     else
                     {
-                        sqlstr = "SELECT  *  FROM EVNHN_CSKH_NGUOISUDUNG order by " + sOrderBy;
+                        sqlstr = "SELECT  *  FROM NHANVIEN order by " + sOrderBy;
                     }
                 }
                 else
                 {
                     if (sOrderBy.Trim() == string.Empty)
                     {
-                        sqlstr = "SELECT  *  FROM  EVNHN_CSKH_NGUOISUDUNG  WHERE  " + strWhereCondition;
+                        sqlstr = "SELECT  *  FROM  NHANVIEN  WHERE  " + strWhereCondition;
                     }
                     else
                     {
-                        sqlstr = "SELECT  *  FROM EVNHN_CSKH_NGUOISUDUNG  WHERE  " + strWhereCondition + " order by " + sOrderBy;
+                        sqlstr = "SELECT  *  FROM NHANVIEN  WHERE  " + strWhereCondition + " order by " + sOrderBy;
                     }
                 }
-                IDataReader dr = CSKHHANOI.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
+                IDataReader dr = QLPHONGKHAM.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
                 List<clsNhanVien_entity> objList = new List<clsNhanVien_entity>();
                 List<object> objObjectList = new List<object>();
                 objObjectList = CBO.FillList(dr, typeof(clsNhanVien_entity));

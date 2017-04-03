@@ -1,4 +1,4 @@
-﻿using CSKHHANOI;
+﻿using QLPHONGKHAM;
 using PhongKhamDaKhoa.entity;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace PhongKhamDaKhoa.controller
             try
             {
                 string sqlstr = "SELECT  *  FROM dbo.CHUCVU WHERE MACV = " + sMACV  ;
-                IDataReader dr = CSKHHANOI.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
+                IDataReader dr = QLPHONGKHAM.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
                 clsChucVu_entity obj = new clsChucVu_entity();
                 obj = (clsChucVu_entity)CBO.FillObject(dr, typeof(clsChucVu_entity));
                 return obj;
@@ -32,12 +32,11 @@ namespace PhongKhamDaKhoa.controller
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[2];
-                prms[i] = new System.Data.SqlClient.SqlParameter("@MACV", obj.MACV);
-                i = i + 1;
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[1];
+                
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TEN", obj.TEN);
               
-                CSKHHANOI.clsSQLExecute.ExcuteSP("dbo.sp_Insert_CHUCVU", ref prms, 2, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("dbo.sp_Insert_CHUCVU", ref prms, 1, ref errMsg);
             }
             catch (Exception ex)
             {
@@ -57,7 +56,7 @@ namespace PhongKhamDaKhoa.controller
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TEN", obj.TEN);
           
              
-                CSKHHANOI.clsSQLExecute.ExcuteSP("dbo.sp_Update_CHUCVU", ref prms, 2, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("dbo.sp_Update_CHUCVU", ref prms, 2, ref errMsg);
             }
             catch (Exception ex)
             {
@@ -69,7 +68,7 @@ namespace PhongKhamDaKhoa.controller
         public void Delete(string sIDCV, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM dbo.CHUCVU WHERE MACV=" + sIDCV;
-            CSKHHANOI.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
+            QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace CSKHHANOI
+namespace QLPHONGKHAM
 {
     public class clsSQLExecute
     {
@@ -725,7 +725,7 @@ namespace CSKHHANOI
 
                 if ((temTable.Rows.Count > 0))
                 {
-                    return CSKHHANOI.Common.ConvertObj2Int(temTable.Rows[0][0].ToString());
+                    return QLPHONGKHAM.Common.ConvertObj2Int(temTable.Rows[0][0].ToString());
                 }
                 else
                 {
@@ -903,7 +903,7 @@ namespace CSKHHANOI
             try
             {
                 string errMsg = string.Empty;
-                DataTable dt = CSKHHANOI.clsSQLExecute.LoadDataFromDB(strSQL, "tem", ref errMsg);
+                DataTable dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "tem", ref errMsg);
 
                 if (dt.Rows.Count > 0)
                 {
