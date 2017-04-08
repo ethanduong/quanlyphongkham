@@ -9,7 +9,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <asp:GridView ID="Grv_DichVu" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered grv">
+                    <asp:GridView ID="Grv_DichVu" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered grv" OnRowCommand="Grv_DichVu_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="STT">
                                 <ItemTemplate>
@@ -81,9 +81,9 @@
         </div>
     </div>
 
-
+         <div class="clearfix"></div>
     <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12  col-xs-12">
             <asp:Panel ID="pnlAddNewSP" runat="server" Visible="false">
                 <div class="x_panel">
                     <div class="x_title">
@@ -107,47 +107,53 @@
                     </div>
                     <div class="x_content">
 
+                        <br />
+                        <%--   <form id="demo-form3" class="form-horizontal form-label-left"> --%>
+                             <div class="form-group" style="padding-bottom:40px;">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12"  for="Mã Phòng Ban" runat="server" style="text-align:right">
+                                Mã Phòng Ban <span class="required">*</span>
+                            </label>
+                             <div class="col-md-6 col-sm-6 col-xs-12">
+                                <asp:DropDownList ID="drplControl" runat="server" CssClass="form-control col-md-7 col-xs-12">
+                                </asp:DropDownList>
 
-                        <form id="demo-form3" class="form-horizontal form-label-left">
-
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Mã Phòng Ban" runat="server">
-                                    Mã Phòng Ban <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:DropDownList ID="drplControl" runat="server" CssClass="form-control input-sm">
-                                    </asp:DropDownList>
-
-                                </div>
                             </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Tên Dịch Vụ" runat="server">
-                                    Tên Dịch Vụ <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
+                       </div>
+                 
 
-                                    <input type="text" id="txtTenDV" name="Tên Dịch Vụ" runat="server"  class="form-control col-md-7 col-xs-12">
-                                </div>
+                        <div class="form-group" style="padding-bottom:40px;">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Dịch Vụ" runat="server"  style="text-align:right">
+                                Tên Dịch Vụ <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                <input type="text" id="txtTenDV" name="Tên Dịch Vụ" runat="server" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
-                            <div class="item form-group">
-                                <label for="Mô Tả" class="control-label col-md-3 col-sm-3 col-xs-12" runat="server">Mô Tả</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="txtMoTa" class="form-control col-md-7 col-xs-12" type="text" name="Mô Tả" runat="server">
-                                </div>
+                       </div>
+                        
+                        <div class=" form-group">
+                            <label for="Mô Tả" class="control-label col-md-4 col-sm-4 col-xs-12" runat="server" style="text-align:right">Mô Tả<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="txtMoTa" class="form-control col-md-7 col-xs-12" required="required" type="text" name="Mô Tả" runat="server" >
                             </div>
+                        </div>
+                          <div class="clearfix"></div>
+                        <div class="ln_solid"></div>
+                          <div class="clearfix"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+                                <asp:Label ID="lblAction" runat="server" Visible="False"></asp:Label>
+                                <asp:Button ID="btnHuy" runat="server" Text="Hủy" CssClass="btn btn-primary" OnClick="btnHuy_Click" />
+                                <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
+                                <asp:Button ID="btnSubmit" runat="server" Text="Lưu" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
+                                <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblID_Update" runat="server" Visible="False"></asp:Label>
 
-                            <div class="ln_solid"></div>
-                            <div class="item form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <asp:Button ID="btnHuy" runat="server" Text="Hủy" CssClass="btn btn-primary" OnClick="btnHuy_Click" />
-                                    <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
-
-                                    <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
-                                </div>
                             </div>
+                        </div>
 
-                          
-                        </form>
+
+                        <%-- </form> --%>
                     </div>
 
                 </div>

@@ -71,7 +71,7 @@ namespace PhongKhamDaKhoa.controller
 
         }
 
-        public void Delete(string sID_SP, ref string errMsg)
+        public void Delete(int sID_SP, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM dbo.SANPHAM_DICHVU WHERE ID_SP=" + sID_SP;
             QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
