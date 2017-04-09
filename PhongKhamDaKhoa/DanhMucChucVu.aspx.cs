@@ -16,7 +16,11 @@ namespace PhongKhamDaKhoa
         private int _stt;
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadDataToGridView();
+            if (!IsPostBack)
+            {
+                LoadDataToGridView();
+                return;
+            }
         }
 
         public string STT()
@@ -35,27 +39,27 @@ namespace PhongKhamDaKhoa
             ViewState["dtcv"] = dt;
         }
 
-        protected void lnkAddNewCV_Click(object sender, EventArgs e)
+        protected void btnThemMoi_Click(object sender, EventArgs e)
         {
             
-            formHeader.Text = "Thêm Mới Chức Vụ";
+           // formHeader.Text = "Thêm Mới Chức Vụ";
             lblAction.Text = "insert";
             lblMsg.Text = string.Empty;
-            txtTenCV.Text = string.Empty;
+            txtTenCV.Value = string.Empty;
             pnlAddNewCV.Visible = true;
 
            
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void btnHuy_Click(object sender, EventArgs e)
         {
            
-            txtTenCV.Text = string.Empty;
+            txtTenCV.Value = string.Empty;
             pnlAddNewCV.Visible = false;
             lblMsg.Text = string.Empty;
         }
 
-        protected bool validate()
+     /*   protected bool validate()
         {
 
            
@@ -70,7 +74,7 @@ namespace PhongKhamDaKhoa
 
             return true;
         }
-
+        */
 
         protected void gvDSCV_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -83,13 +87,13 @@ namespace PhongKhamDaKhoa
               
                 lblID_Update.Text = e.CommandArgument.ToString();
                 lblAction.Text = "update";
-                formHeader.Text = "Cập Nhập Chức Vụ";
-                cvent = controller.GetData(id.ToString(), ref errMsg);
+                //formHeader.Text = "Cập Nhập Chức Vụ";
+                cvent = controller.GetData(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
                     pnlAddNewCV.Visible = true;
                   
-                    txtTenCV.Text = cvent.TEN;
+                    txtTenCV.Value = cvent.TEN;
                    
                 }
                 else
@@ -102,13 +106,13 @@ namespace PhongKhamDaKhoa
             {
                 pnlAddNewCV.Visible = false;
                 lblMsg.Text = string.Empty;
-                controller.Delete(id.ToString(), ref errMsg);
+                controller.Delete(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
-                    lblMsg.Text = "Xóa chức vụ thành công !";
 
-                    lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                    pnlAddNewCV.Visible = false;
                     LoadDataToGridView();
+                    txtTenCV.Value = string.Empty;
                 }
                 else
                 {
@@ -119,7 +123,7 @@ namespace PhongKhamDaKhoa
             }
         }
 
-        protected void btnInsert_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
            
             if (lblAction.Text == "insert")
@@ -127,19 +131,18 @@ namespace PhongKhamDaKhoa
                 clsChucVu_entity cvent = new clsChucVu_entity();
                 clsChucVu_controller controller = new clsChucVu_controller();
                
-                if (validate())
-                {
+               /* if (validate())
+                {*/
 
-                    cvent.TEN = txtTenCV.Text;
+                    cvent.TEN = txtTenCV.Value;
                     controller.Insert(cvent, ref errMsg);
                     if (errMsg == string.Empty)
                     {
-                        lblMsg.Text = "Thêm mới thành công !";
-                        lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                       
                         pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
                       
-                        txtTenCV.Text = string.Empty;
+                        txtTenCV.Value = string.Empty;
                     }
                     else
                     {
@@ -147,16 +150,16 @@ namespace PhongKhamDaKhoa
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
                 }
-                else { return; }
-            }
+                //else { return; }
+            //} 
             if (lblAction.Text == "update")
             {
                 clsChucVu_entity cvent = new clsChucVu_entity();
                 clsChucVu_controller controller = new clsChucVu_controller();
-                if (validate())
-                {
+                //if (validate())
+                //{
                     cvent.MACV = QLPHONGKHAM.Common.ConvertObj2Int(lblID_Update.Text);
-                    cvent.TEN = txtTenCV.Text;
+                    cvent.TEN = txtTenCV.Value;
                    
                   
                     controller.Update(cvent, ref errMsg);
@@ -164,12 +167,10 @@ namespace PhongKhamDaKhoa
                     if (errMsg == string.Empty)
                     {
                      
-                        lblMsg.Text = "Thay đổi thông tin thành công !";
-                        lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                         pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
                      
-                        txtTenCV.Text = string.Empty;
+                        txtTenCV.Value = string.Empty;
                     }
                     else
                     {
@@ -177,9 +178,9 @@ namespace PhongKhamDaKhoa
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
                 }
-                else { return; }
+            //    else { return; }
 
-            }
+            //}
         }
 
         protected void gvDSCV_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -199,6 +200,13 @@ namespace PhongKhamDaKhoa
             catch (Exception)
             {
             }
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            txtTenCV.Value = string.Empty;
+           
+            lblMsg.Text = string.Empty;
         }
 
         

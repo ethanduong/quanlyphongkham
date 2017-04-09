@@ -1,121 +1,134 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhMucChucVu.aspx.cs" Inherits="PhongKhamDaKhoa.DanhMucChucVu" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <table style="width: 100%" id="tblcv">
-        <tr>
-            <td style="text-align: center" colspan="3">
-                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="Blue"
-                    Text=" Quản lý danh sách chức vụ của nhân viên" Width="456px">
-                </asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <asp:GridView ID="gvDSCV" runat="server" AutoGenerateColumns="False"
-                    Width="100%" AllowPaging="true" PageSize="10" CssClass="table table-striped" OnRowCommand="gvDSCV_RowCommand" OnPageIndexChanging="gvDSCV_PageIndexChanging">
-                    <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
-                    <Columns>
-                        <asp:TemplateField HeaderText="STT">
-                            <ItemTemplate>
-                                <asp:Label ID="lblSTT" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
-                            </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
-                            <HeaderStyle CssClass="text-center" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Mã Chức Vụ">
-                            <ItemTemplate>
-                                <asp:Label ID="lblMaCV" runat="server" Text='<%# Bind("MACV")%>'></asp:Label>
-                            </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
-                            <HeaderStyle CssClass="text-center" />
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Tên Chức Vụ">
-                            <ItemTemplate>
-                                <asp:Label ID="lblTenCV" runat="server" Text='<%# Bind("TEN")%>'></asp:Label>
-
-                            </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
-                            <HeaderStyle CssClass="text-center" />
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("MACV")%>' >  
-                                </asp:LinkButton>
-                            </ItemTemplate>
-                              <ItemStyle Width="55px" HorizontalAlign="Center" />
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Chức Vụ"
-                                    runat="server" CommandArgument='<%# Bind("MACV")%>' OnClientClick="javascript: return my_confirm();"> 
-                                </asp:LinkButton>
-                                <script>
-                                    function my_confirm() {
-                                        var result = confirm("Bạn có chắc chắn không?");
-                                        if (result) {
-                                            return true;
-                                        }
-                                        return false;
-                                    }
-                                </script>
-                                 
-                            </ItemTemplate>
-                           <ItemStyle Width="55px" HorizontalAlign="Center" />
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 249px; height: 21px">
-                <asp:LinkButton ID="lnkAddNewCV" runat="server" CssClass="btn btn-info" OnClick="lnkAddNewCV_Click">Thêm mới</asp:LinkButton>
-            </td>
-            <td style="width: 252px; height: 21px"></td>
-            <td style="width: 169px; height: 21px"></td>
-        </tr>
-        <tr>
-            <td colspan="3" style="height: 21px; text-align: center"></td>
-        </tr>
-    </table>
-    <div class="row text-center" style="padding: 5px; font-size: 1.2em; font-weight: bold">
-        <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <asp:Panel ID="pnlAddNewCV" runat="server" class="panel col-lg-6 col-lg-offset-3 col-md-8"
-                Style="font-size: 1.2em; font-family: Arial; font-weight: bold; color: #5b5b5b; background-color: #fbf0d8"
-                Visible="false">
-                <div class="text-center" style="padding: 15px">
-                    <asp:Label runat="server" ID="formHeader" Text="Thêm mới chức vụ" CssClass="lead"
-                        Style="color: #404040; font-weight: bold"></asp:Label>
+     <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Danh Sách Chức Vụ</h2>
+                    <div class="clearfix"></div>
                 </div>
-                <table class="table">
-                    <tr>
-                        <td colspan="2" style="text-align: center"></td>
-                    </tr>
-                   
-                    <tr>
-                        <td style="text-align: right">
-                            <asp:Label ID="lblTenCV" runat="server" Text="Tên Chức Vụ" CssClass="Normal_Label"></asp:Label>(<span
-                                style="color: Red">*</span>):
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtTenCV" runat="server" CssClass="form-control input-sm"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="lblAction" runat="server" Visible="False"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Button ID="btnInsert" runat="server" Text="Ghi" Width="85px" CssClass="btn btn-success" OnClick="btnInsert_Click" OnClientClick="javascript: return my_confirm();"/>
-                            <asp:Button ID="btnCancel" runat="server" Text="Hủy" Width="95px" CssClass="btn btn-info" OnClick="btnCancel_Click" />
-                            <asp:Label ID="lblID_Update" runat="server" Visible="False"></asp:Label>
+                <div class="x_content">
+                    <asp:GridView ID="gvDSCV" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered grv" OnRowCommand="gvDSCV_RowCommand">
+                        <Columns>
+                            <asp:TemplateField HeaderText="STT">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblSTT" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                                <HeaderStyle CssClass="text-center" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Mã Chức Vụ">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMaCV" runat="server" Text='<%# Bind("MACV")%>'></asp:Label>
+                                </ItemTemplate>
 
-                        </td>
-                    </tr>
-                </table>
+                                <HeaderStyle CssClass="text-center" />
+                            </asp:TemplateField>
+                          
+
+                            <asp:TemplateField HeaderText="Tên Chức Vụ">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblTenCV" runat="server" Text='<%# Bind("TEN") %>'></asp:Label>
+                                </ItemTemplate>
+
+                                <HeaderStyle CssClass="text-center" />
+                            </asp:TemplateField>
+                      
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("MACV")%>'>  
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                                <ItemStyle Width="55px" HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Thông Tin Chức Vụ"
+                                        runat="server" CommandArgument='<%# Bind("MACV")%>' OnClientClick="javascript: return my_confirm();"> 
+                                    </asp:LinkButton>
+                                    <script>
+                                        function my_confirm() {
+                                            var result = confirm("Bạn có chắc chắn không?");
+                                            if (result) {
+                                                return true;
+                                            }
+                                            return false;
+                                        }
+                                    </script>
+
+                                </ItemTemplate>
+                                <ItemStyle Width="55px" HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+         <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12  col-xs-12">
+            <asp:Panel ID="pnlAddNewCV" runat="server" Visible="false">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Thêm mới chức vụ</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <br />
+                        <%--   <form id="demo-form3" class="form-horizontal form-label-left"> --%>
+                           
+
+                        <div class="form-group" style="padding-bottom:40px;">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Chức Vụ" runat="server"  style="text-align:right">
+                                Tên Chức Vụ <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                <input type="text" id="txtTenCV" name="Tên Chức Vụ" runat="server" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                       </div>
+                        
+                      
+                          <div class="clearfix"></div>
+                        <div class="ln_solid"></div>
+                          <div class="clearfix"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+                                <asp:Label ID="lblAction" runat="server" Visible="False"></asp:Label>
+                                <asp:Button ID="btnHuy" runat="server" Text="Hủy" CssClass="btn btn-primary" OnClick="btnHuy_Click" />
+                                <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
+                                <asp:Button ID="btnSubmit" runat="server" Text="Lưu" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
+                                <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblID_Update" runat="server" Visible="False"></asp:Label>
+
+                            </div>
+                        </div>
+
+
+                        <%-- </form> --%>
+                    </div>
+
+                </div>
             </asp:Panel>
         </div>
     </div>
