@@ -36,5 +36,13 @@ namespace PhongKhamDaKhoa.entity
             get { return _MOTA; }
             set { _MOTA = value; }
         }
+
+        public cls_SanPhamDichVu_entity()
+        {
+            _IDSP = 0;
+            _MAPB = 0;
+            _TENDV = string.Empty;
+            _MOTA = string.Empty;
+        }
     }
 }

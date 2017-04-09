@@ -4468,6 +4468,7 @@
     <Compile Include="controller\clsNhanVien_controller.cs" />
     <Compile Include="controller\clsPhongBan_controller.cs" />
     <Compile Include="controller\clsSanPhamDichVu_controller.cs" />
+    <Compile Include="controller\clsThongSoKyThuat_controller.cs" />
     <Compile Include="controller\clsTTBenhNhan_controller.cs" />
     <Compile Include="DanhMucChucVu.aspx.cs">
       <DependentUpon>DanhMucChucVu.aspx</DependentUpon>
@@ -4523,6 +4524,7 @@
     <Compile Include="entity\clsPhongBan_entity.cs" />
     <Compile Include="entity\clsTTBenhNhan_entity.cs" />
     <Compile Include="entity\cls_SanPhamDichVu_entity.cs" />
+    <Compile Include="entity\cls_ThongSoKyThuat_entity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

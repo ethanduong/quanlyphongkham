@@ -66,12 +66,14 @@ namespace PhongKhamDaKhoa
             pnlAddNewSP.Visible = false;
             txtTenDV.Value = "";
             txtMoTa.Value = "";
+          
         }
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
             txtTenDV.Value = "";
             txtMoTa.Value = "";
+           
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -144,9 +146,11 @@ namespace PhongKhamDaKhoa
                 if (errMsg == string.Empty)
                 {
                     pnlAddNewSP.Visible = true;
+                    LoadMaPB();
+
                     txtTenDV.Value = cvent.TENDV;
                     txtMoTa.Value = cvent.MOTA;
-                  
+
                     drplControl.Text = cvent.MAPB.ToString();
 
                 }
