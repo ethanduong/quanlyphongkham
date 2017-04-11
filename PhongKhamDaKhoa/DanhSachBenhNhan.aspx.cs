@@ -16,20 +16,35 @@ namespace PhongKhamDaKhoa
         {
             if (!IsPostBack)
             {
-                LoadDataToGridView();
-                return;
+                LoadDataToGridView();                
             }
         }
 
         private void LoadDataToGridView()
         {
 
-            string strSQL = "SELECT * FROM dbo.TT_BENHNHAN";
+            string strSQL = "SELECT * FROM dbo.VIEW_TT_BENHNHAN";
             DataTable dt = new DataTable();
             dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
             Grv_BenhNhan.DataSource = dt;
             Grv_BenhNhan.DataBind();
             ViewState["dtbn"] = dt;
+            
+        }
+
+        protected void btnThemMoi_Click(object sender, EventArgs e)
+        {
+            PnlThemMoi.Visible = true;
+        }
+
+        protected void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnXoa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

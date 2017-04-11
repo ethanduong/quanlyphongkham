@@ -1,4 +1,4 @@
-/*
+﻿/*
     Validator v1.1.0
     (c) Yair Even Or
     https://github.com/yairEO/validator
@@ -15,11 +15,11 @@ var validator = (function($){
     /* general text messages
     */
     message = {
-        invalid         : 'invalid input',
+        invalid         : 'Thông tin nhập không hợp lệ',
         checked         : 'must be checked',
-        empty           : 'please put something here',
-        min             : 'input is too short',
-        max             : 'input is too long',
+        empty           : 'Hãy nhập thông tin',
+        min             : 'thông tin quá ngắn',
+        max             : 'thông tin quá dài',
         number_min      : 'too low',
         number_max      : 'too high',
         url             : 'invalid URL',

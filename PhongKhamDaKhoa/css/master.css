@@ -3,3 +3,16 @@
 body,body.nav-md{
     color:#204e7b;
 }
+
+.radio-btn{
+    padding-top:8px;
+    margin-right:10px;
+}
+
+.radio-btn input,.radio-btn label{
+    margin-right:5px;
+}
+
+.rdb {
+ padding:5px;
+}

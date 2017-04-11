@@ -12,8 +12,8 @@ namespace PhongKhamDaKhoa.entity
         private DateTime _NGAYSINH;
         private string _DIENTHOAI;
         private bool _GIOITINH;
-        private string _CHIEUCAO;
-        private string _CANNANG;
+        private int _CHIEUCAO;
+        private int _CANNANG;
         private string _TIENSU;
         //********************************
         public int MABN
@@ -50,14 +50,14 @@ namespace PhongKhamDaKhoa.entity
             set { _GIOITINH = value; }
         }
 
-        public string CHIEUCAO
+        public int CHIEUCAO
         {
             get { return _CHIEUCAO; }
 
             set { _CHIEUCAO = value; }
         }
 
-        public string CANNANG
+        public int CANNANG
         {
             get { return _CANNANG; }
 
@@ -80,8 +80,8 @@ namespace PhongKhamDaKhoa.entity
             _NGAYSINH = new DateTime();
             _DIENTHOAI = string.Empty;
             _GIOITINH = true;
-            _CHIEUCAO = string.Empty;
-            _CANNANG = string.Empty;
+            _CHIEUCAO = 0;
+            _CANNANG = 0;
             _TIENSU = string.Empty;
         }
     }

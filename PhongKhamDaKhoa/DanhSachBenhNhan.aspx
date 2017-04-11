@@ -1,5 +1,66 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhSachBenhNhan.aspx.cs" Inherits="PhongKhamDaKhoa.DanhSachBenhNhan" %>
 
+<%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<asp:Content ID="content_Head" ContentPlaceHolderID="headerContent" runat="server">
+    <style>
+        .radio-btn input[type=radio], .radio-btn label {
+            cursor: pointer;
+        }
+
+        .radio-btn label {
+            margin-right: 15px;
+            margin-top: 8px;
+            font-style: normal;
+        }
+
+        .form-group label {
+        }
+
+        .radio-btn input[type=radio] {
+            width: 15px;
+            height: 15px;
+            margin-top: 8px;
+            margin-right: 5px;
+            border-color: #26B99A;
+            margin-left: 10px;
+        }
+
+        .form-group label, .form-group input {
+        }
+
+        input[type='radio']:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #d1d3d1;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 2px solid white;
+        }
+
+        input[type='radio']:checked:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #26B99A;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 2px solid #d1d3d1;
+        }
+
+        .x_title {
+            text-align: center;
+        }
+    </style>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -18,11 +79,11 @@
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Mã Bệnh Nhân">
+                            <asp:TemplateField HeaderText="Mã BN">
                                 <ItemTemplate>
                                     <asp:Label ID="lblMaBN" runat="server" Text='<%# Bind("MABN")%>'></asp:Label>
                                 </ItemTemplate>
-
+                                <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Họ Tên">
@@ -53,17 +114,18 @@
 
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Chiều Cao">
+                            <asp:TemplateField HeaderText="Chiều Cao (Cm)">
                                 <ItemTemplate>
                                     <asp:Label ID="lblChieuCao" runat="server" Text='<%# Bind("CHIEUCAO")%>'></asp:Label>
                                 </ItemTemplate>
-
+                                <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Cân Nặng">
+                            <asp:TemplateField HeaderText="Cân Nặng (Kg)">
                                 <ItemTemplate>
                                     <asp:Label ID="lblCanNang" runat="server" Text='<%# Bind("CANNANG")%>'></asp:Label>
                                 </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tiền Sử">
@@ -99,96 +161,107 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" />
+                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" UseSubmitBehavior="False" />
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+            <asp:Panel ID="PnlThemMoi" runat="server" Visible="false">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Thông Tin Bệnh Nhân</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                First Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                    <div class="x_content">
+                        <br />
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+
+                        </asp:UpdatePanel>
+                        <div class="form-horizontal form-label-left form">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="HoTen">
+                                    Họ Tên <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <asp:TextBox ID="HoTen" runat="server" required="required" class="form-control col-md-7 col-xs-12" data-validate-length-range="6,100"></asp:TextBox>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                Last Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="NgaySinh">
+                                    Ngày Sinh <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <asp:TextBox class="form-control has-feedback-left" ID="single_cal3" ClientIDMode="Static" aria-describedby="inputSuccess2Status3" runat="server" required="required"></asp:TextBox>
+                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                    <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                            <div class="item form-group">
+                                <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                    Giới Tính                                                
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12 rdb">
+                                    <asp:RadioButtonList ID="rdbgGioiTinh" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" CssClass="radio-btn">
+                                        <asp:ListItem Text="Nam" Value="true" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Text="Nữ" Value="false"></asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div id="gender" class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="gender" value="male">
-                                        &nbsp; Male &nbsp;
-                           
-                                    </label>
-                                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="gender" value="female">
-                                        Female
-                           
-                                    </label>
+                            <div class="item form-group">
+                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Chiều Cao (Cm)</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <asp:TextBox ID="txtChieuCao" runat="server" type="number" Style="padding-left: 10px" class="form-control col-md-7 col-xs-12"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                    Cân Nặng (Kg)
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <asp:TextBox ID="txtCanNang" runat="server" type="number" Style="padding-left: 10px" class="form-control col-md-7 col-xs-12"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Điện Thoại <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <asp:TextBox ID="txtDienThoai" type="tel" runat="server" name="phone" required="required" data-validate-length-range="8,11" Style="padding-left: 10px" class="form-control col-md-7 col-xs-12" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="item form-group">
+                                <div class="control-label col-md-3 col-sm-3 col-xs-12"></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 btn">
+                                    <asp:Button ID="btnLuu" runat="server" Text="Lưu thông tin" CssClass="btn btn-primary" OnClick="btnLuu_Click" />
+                                    <asp:Button ID="btnXoa" runat="server" Text="Hủy" CssClass="btn btn-danger" OnClick="btnXoa_Click"/>                                     
+                                    <asp:Label ID="lblAction" runat="server" Text=""></asp:Label>    
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                Date Of Birth <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                            </div>
-                        </div>
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button class="btn btn-primary" type="button">Cancel</button>
-                                <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
-                        </div>
-
-                    </form>
+                    </div>
                 </div>
-            </div>
+            </asp:Panel>
         </div>
     </div>
+
+</asp:Content>
+<asp:Content ContentPlaceHolderID="contentFooter" runat="server" ID="contentfoot">
+    <!-- validator -->
+    <script src="vendors/validator/validator.js"></script>
+    <script>        
+       
+    </script>
 </asp:Content>
