@@ -13,15 +13,6 @@ namespace PhongKhamDaKhoa {
     public partial class DanhMucChucVu {
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// gvDSCV control.
         /// </summary>
         /// <remarks>
@@ -31,22 +22,13 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.GridView gvDSCV;
         
         /// <summary>
-        /// lnkAddNewCV control.
+        /// btnThemMoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAddNewCV;
-        
-        /// <summary>
-        /// lblMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
+        protected global::System.Web.UI.WebControls.Button btnThemMoi;
         
         /// <summary>
         /// pnlAddNewCV control.
@@ -58,31 +40,13 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Panel pnlAddNewCV;
         
         /// <summary>
-        /// formHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label formHeader;
-        
-        /// <summary>
-        /// lblTenCV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTenCV;
-        
-        /// <summary>
         /// txtTenCV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTenCV;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTenCV;
         
         /// <summary>
         /// lblAction control.
@@ -94,22 +58,40 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Label lblAction;
         
         /// <summary>
-        /// btnInsert control.
+        /// btnHuy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsert;
+        protected global::System.Web.UI.WebControls.Button btnHuy;
         
         /// <summary>
-        /// btnCancel control.
+        /// btnReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnReset;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        
+        /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
         /// lblID_Update control.

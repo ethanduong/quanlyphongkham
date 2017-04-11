@@ -10,7 +10,7 @@ namespace PhongKhamDaKhoa.controller
 {
     public class clsPhongBan_controller
     {
-          public clsPhongBan_entity GetData(string sMAPB, ref string errMsg)
+          public clsPhongBan_entity GetData(int sMAPB, ref string errMsg)
         {
             try
             {
@@ -65,11 +65,59 @@ namespace PhongKhamDaKhoa.controller
           
         }
 
-        public void Delete(string sIDPB, ref string errMsg)
+        public void Delete(int sIDPB, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM dbo.PHONGBAN WHERE MAPB=" + sIDPB;
             QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
         }
+
+        public List<clsPhongBan_entity> GetList(string strWhereCondition, string sOrderBy, ref string errMsg)
+        {
+            try
+            {
+                errMsg = string.Empty;
+                string sqlstr = null;
+                if (strWhereCondition.Trim() == string.Empty)
+                {
+                    if (sOrderBy.Trim() == string.Empty)
+                    {
+                        sqlstr = "SELECT  *  FROM  PHONGBAN";
+                    }
+                    else
+                    {
+                        sqlstr = "SELECT  *  FROM PHONGBAN order by " + sOrderBy;
+                    }
+                }
+                else
+                {
+                    if (sOrderBy.Trim() == string.Empty)
+                    {
+                        sqlstr = "SELECT  *  FROM  PHONGBAN  WHERE  " + strWhereCondition;
+                    }
+                    else
+                    {
+                        sqlstr = "SELECT  *  FROM PHONGBAN  WHERE  " + strWhereCondition + " order by " + sOrderBy;
+                    }
+                }
+                IDataReader dr = QLPHONGKHAM.clsSQLExecute.getIDataReader(sqlstr, ref errMsg);
+                List<clsPhongBan_entity> objList = new List<clsPhongBan_entity>();
+                List<object> objObjectList = new List<object>();
+                objObjectList = CBO.FillList(dr, typeof(clsPhongBan_entity));
+                int index = 0;
+                for (index = 0; index <= objObjectList.Count - 1; index++)
+                {
+                    objList.Add((clsPhongBan_entity)objObjectList[index]);
+                }
+                return objList;
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+                return null;
+            }
+        }
+
+
     }
     
 }

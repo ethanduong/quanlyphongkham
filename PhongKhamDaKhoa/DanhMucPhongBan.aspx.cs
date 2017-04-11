@@ -38,33 +38,32 @@ namespace PhongKhamDaKhoa
             return Convert.ToString(_stt++);
         }
 
-        protected void lnkAddNewPB_Click(object sender, EventArgs e)
+        protected void btnThemMoi_Click(object sender, EventArgs e)
         {
-            formHeader.Text = "Thêm Mới Phòng Ban";
+           // formHeader.Text = "Thêm Mới Phòng Ban";
             lblAction.Text = "insert";
             lblMsg.Text = string.Empty;
-            txtTenPB.Text = string.Empty;
+            txtTenPB.Value = string.Empty;
             pnlAddNewPB.Visible = true;
         }
 
-        protected void btnInsert_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (lblAction.Text == "insert")
             {
                 clsPhongBan_entity cvent = new clsPhongBan_entity();
                 clsPhongBan_controller controller = new clsPhongBan_controller();
-                if (validate())
-                {
-                    cvent.TENPHONG = txtTenPB.Text;
+                //if (validate())
+                //{
+                    cvent.TENPHONG = txtTenPB.Value;
                     controller.Insert(cvent, ref errMsg);
                     if (errMsg == string.Empty)
                     {
-                        lblMsg.Text = "Thêm mới thành công !";
-                        lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                       
                         pnlAddNewPB.Visible = false;
                         LoadDataToGridView();
                      
-                        txtTenPB.Text = string.Empty;
+                        txtTenPB.Value = string.Empty;
                     }
                     else
                     {
@@ -72,59 +71,58 @@ namespace PhongKhamDaKhoa
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
                 }
-                else { return; }
-            }
+            //    else { return; }
+            //}
             if (lblAction.Text == "update")
             {
                 clsPhongBan_entity cvent = new clsPhongBan_entity();
                 clsPhongBan_controller controller = new clsPhongBan_controller();
-                if (validate())
-                {
+                //if (validate())
+                //{
                     cvent.MAPB = QLPHONGKHAM.Common.ConvertObj2Int(lblID_Update.Text);
-                    cvent.TENPHONG = txtTenPB.Text;
+                    cvent.TENPHONG = txtTenPB.Value;
 
                     controller.Update(cvent, ref errMsg);
 
                     if (errMsg == string.Empty)
                     {
 
-                        lblMsg.Text = "Thay đổi thông tin thành công !";
-                        lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                      
                         pnlAddNewPB.Visible = false;
                         LoadDataToGridView();
-                        txtTenPB.Text = string.Empty;
+                        txtTenPB.Value = string.Empty;
                     }
                     else
                     {
                         lblMsg.Text = "Thay đổi thông tin thất bại !";
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
-                }
-                else { return; }
+                //}
+                //else { return; }
 
             }
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void btnHuy_Click(object sender, EventArgs e)
         {
-            txtTenPB.Text = string.Empty;
+            txtTenPB.Value = string.Empty;
             pnlAddNewPB.Visible = false;
             lblMsg.Text = string.Empty;
         }
-        protected bool validate()
-        {
+        //protected bool validate()
+        //{
 
 
-            if (txtTenPB.Text == string.Empty)
-            {
-                lblMsg.Text = "Tên phòng ban không được để trống !";
-                lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
-                txtTenPB.Focus();
-                return false;
-            }
+        //    if (txtTenPB.Value == string.Empty)
+        //    {
+        //        lblMsg.Text = "Tên phòng ban không được để trống !";
+        //        lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+        //        txtTenPB.Focus();
+        //        return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         protected void gvDSPB_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -136,12 +134,12 @@ namespace PhongKhamDaKhoa
                 lblMsg.Text = string.Empty;
                 lblID_Update.Text = e.CommandArgument.ToString();
                 lblAction.Text = "update";
-                formHeader.Text = "Cập Nhập Phòng Ban";
-                cvent = controller.GetData(id.ToString(), ref errMsg);
+             //   formHeader.Text = "Cập Nhập Phòng Ban";
+                cvent = controller.GetData(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
                     pnlAddNewPB.Visible = true;
-                    txtTenPB.Text = cvent.TENPHONG;
+                    txtTenPB.Value = cvent.TENPHONG;
 
                 }
                 else
@@ -152,12 +150,10 @@ namespace PhongKhamDaKhoa
             }
             if (e.CommandName.ToString() == "cmdDelete")
             {
-                controller.Delete(id.ToString(), ref errMsg);
+                controller.Delete(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
-                    lblMsg.Text = "Xóa phòng ban thành công !";
-
-                    lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                  
                     LoadDataToGridView();
                 }
                 else
@@ -186,6 +182,13 @@ namespace PhongKhamDaKhoa
             catch (Exception)
             {
             }
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            txtTenPB.Value = string.Empty;
+           
+            lblMsg.Text = string.Empty;
         }
     }
 }
