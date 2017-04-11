@@ -172,6 +172,7 @@
     <Content Include="images\prod-5.jpg" />
     <Content Include="images\user.png" />
     <Content Include="images\visa.png" />
+    <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -4530,6 +4531,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>

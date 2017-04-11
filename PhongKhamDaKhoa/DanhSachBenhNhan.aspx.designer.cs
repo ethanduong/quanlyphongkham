@@ -31,6 +31,15 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Button btnThemMoi;
         
         /// <summary>
+        /// lblMsgCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsgCheck;
+        
+        /// <summary>
         /// PnlThemMoi control.
         /// </summary>
         /// <remarks>
@@ -40,22 +49,13 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Panel PnlThemMoi;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// txtHoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// HoTen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox HoTen;
+        protected global::System.Web.UI.WebControls.TextBox txtHoTen;
         
         /// <summary>
         /// single_cal3 control.
@@ -112,15 +112,6 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Button btnLuu;
         
         /// <summary>
-        /// btnXoa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnXoa;
-        
-        /// <summary>
         /// lblAction control.
         /// </summary>
         /// <remarks>
@@ -128,5 +119,23 @@ namespace PhongKhamDaKhoa {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAction;
+        
+        /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+        
+        /// <summary>
+        /// lblIDUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIDUpdate;
     }
 }

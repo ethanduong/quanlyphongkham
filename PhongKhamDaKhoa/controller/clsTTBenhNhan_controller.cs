@@ -32,7 +32,7 @@ namespace PhongKhamDaKhoa.controller
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[6];
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[7];
                 //prms[i] = new System.Data.SqlClient.SqlParameter("@MABN", obj.MABN);
                 //i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@HOTEN", obj.HOTEN);
@@ -46,8 +46,10 @@ namespace PhongKhamDaKhoa.controller
                 prms[i] = new System.Data.SqlClient.SqlParameter("@CHIEUCAO", obj.CHIEUCAO);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@CANNANG", obj.CANNANG);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@TIENSU", obj.TIENSU);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_TT_BENHNHAN", ref prms, 6, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_TT_BENHNHAN", ref prms, 7, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -73,7 +75,7 @@ namespace PhongKhamDaKhoa.controller
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[7];
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[8];
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MABN", obj.MABN);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@HOTEN", obj.HOTEN);
@@ -87,9 +89,10 @@ namespace PhongKhamDaKhoa.controller
                 prms[i] = new System.Data.SqlClient.SqlParameter("@CHIEUCAO", obj.CHIEUCAO);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@CANNANG", obj.CANNANG);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@TIENSU", obj.TIENSU);
 
-
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Update_TT_BENHNHAN", ref prms, 7, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Update_TT_BENHNHAN", ref prms, 8, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{

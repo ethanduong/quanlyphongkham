@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhSachBenhNhan.aspx.cs" Inherits="PhongKhamDaKhoa.DanhSachBenhNhan" %>
 
-<%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="content_Head" ContentPlaceHolderID="headerContent" runat="server">
     <style>
         .radio-btn input[type=radio], .radio-btn label {
@@ -70,7 +69,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <asp:GridView ID="Grv_BenhNhan" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered grv">
+                    <asp:GridView ID="Grv_BenhNhan" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered grv" OnRowCommand="Grv_BenhNhan_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="STT">
                                 <ItemTemplate>
@@ -162,6 +161,8 @@
                         </Columns>
                     </asp:GridView>
                     <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" UseSubmitBehavior="False" />
+                    <br />
+                    <asp:Label ID="lblMsgCheck" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>
@@ -185,17 +186,14 @@
                     </div>
 
                     <div class="x_content">
-                        <br />
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-
-                        </asp:UpdatePanel>
-                        <div class="form-horizontal form-label-left form">
+                        <br />                        
+                        <div class="form-horizontal form-label-left">
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="HoTen">
                                     Họ Tên <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:TextBox ID="HoTen" runat="server" required="required" class="form-control col-md-7 col-xs-12" data-validate-length-range="6,100"></asp:TextBox>
+                                    <asp:TextBox ID="txtHoTen" runat="server" required="required" class="form-control col-md-7 col-xs-12" data-validate-length-range="6,100"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -238,16 +236,18 @@
                                     Điện Thoại <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:TextBox ID="txtDienThoai" type="tel" runat="server" name="phone" required="required" data-validate-length-range="8,11" Style="padding-left: 10px" class="form-control col-md-7 col-xs-12" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="txtDienThoai" type="tel" runat="server" name="phone" required="required" Style="padding-left: 10px" class="form-control col-md-7 col-xs-12" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="control-label col-md-3 col-sm-3 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 btn">
-                                    <asp:Button ID="btnLuu" runat="server" Text="Lưu thông tin" CssClass="btn btn-primary" OnClick="btnLuu_Click" />
-                                    <asp:Button ID="btnXoa" runat="server" Text="Hủy" CssClass="btn btn-danger" OnClick="btnXoa_Click"/>                                     
-                                    <asp:Label ID="lblAction" runat="server" Text=""></asp:Label>    
+                                    <asp:Button ID="btnLuu" runat="server" Text="Lưu thông tin" CssClass="btn btn-primary" OnClick="btnLuu_Click"/>
+                                    <button type="reset" class="btn btn-danger">Reset</button>                                 
+                                    <asp:Label ID="lblAction" runat="server" Text="" Visible="false"></asp:Label>   
+                                    <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label> 
+                                    <asp:Label ID="lblIDUpdate" runat="server" Text="" Visible="false"></asp:Label>                             
                                 </div>
                             </div>
                         </div>
@@ -259,9 +259,9 @@
 
 </asp:Content>
 <asp:Content ContentPlaceHolderID="contentFooter" runat="server" ID="contentfoot">
-    <!-- validator -->
+   <%-- <!-- validator -->
     <script src="vendors/validator/validator.js"></script>
     <script>        
        
-    </script>
+    </script>--%>
 </asp:Content>
