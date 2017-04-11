@@ -48,8 +48,8 @@
     <asp:ContentPlaceHolder runat="server" ID="headerContent"></asp:ContentPlaceHolder>
 </head>
 <body class="nav-md">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>    
-    <form runat="server" class="container body form-horizontal" novalidate>        
+    <form runat="server" class="container body form-horizontal" novalidate>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
