@@ -102,7 +102,7 @@
 
                         <br />
                         <%--   <form id="demo-form3" class="form-horizontal form-label-left"> --%>
-                             <div class="form-group" style="padding-bottom:40px;">
+                             <div class="form-group" >
                             <label class="control-label col-md-4 col-sm-4 col-xs-12"  for="Mã Dịch Vụ" runat="server" style="text-align:right">
                                 Mã Dịch Vụ <span class="required">*</span>
                             </label>
@@ -114,7 +114,7 @@
                        </div>
                  
 
-                        <div class="form-group" style="padding-bottom:40px;">
+                        <div class="form-group" >
                             <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Thông Số" runat="server"  style="text-align:right">
                                 Tên Thông Số <span class="required">*</span>
                             </label>

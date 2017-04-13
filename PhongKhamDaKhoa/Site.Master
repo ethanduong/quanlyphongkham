@@ -54,7 +54,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i><span>Medical Info </span></a>
+                        <a href="Default.aspx" class="site_title"><i class="fa fa-paw"></i><span>Medical Info </span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>John Doe</h2>
+                            <asp:Label ID="lblUserLogin" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -202,14 +202,15 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">John Doe
-                   
-                                       
+                                    <img src="images/img.jpg" alt="">
+                                    <asp:Label ID="lblUserLogin1" runat="server" Text=""></asp:Label>
+
+
 
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="javascript:;">Profile</a></li>
+                                    <li><a href="ThongTinCaNhan.aspx">Thông tin cá nhân</a></li>
                                     <li>
                                         <a href="javascript:;">
                                             <span class="badge bg-red pull-right">50%</span>
@@ -217,7 +218,9 @@
                                         </a>
                                     </li>
                                     <li><a href="javascript:;">Help</a></li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
+                                    <li>
+                                       <asp:LinkButton ID="lnkLogout" runat="server" Text="Đăng xuất" ToolTip="Đăng xuất khỏi hệ thống"
+                                            OnClick="lnkLogout_Click"></asp:LinkButton></li>
                                 </ul>
                             </li>
 

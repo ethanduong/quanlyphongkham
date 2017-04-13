@@ -38,15 +38,20 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    <div class="form">
+                   
+                    <div class="form"> 
                         <h1>Đăng Nhập Tài Khoản</h1>
                         <div>
                             <asp:TextBox ID="txtUsername" class="form-control" runat="server" placeholder="Tên Đăng Nhập" required=""></asp:TextBox>
                         </div>
                         <div>
-                            <asp:TextBox ID="txtPassword" class="form-control" runat="server" placeholder="Mật Khẩu" required=""></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" class="form-control" runat="server" placeholder="Mật Khẩu" required="" TextMode="Password"></asp:TextBox>
+
                         </div>
-                        <div>                            
+                        <div>
+                            <asp:Label ID="lblError" runat="server"></asp:Label>
+                        </div>
+                        <div>
                             <asp:Button ID="btnSubmit" class="btn btn-default submit" runat="server" Text="Đăng nhập" OnClick="btnSubmit_Click" />
                         </div>
 
@@ -57,7 +62,7 @@
                             <br />
 
                             <div>
-                                <h1><i class="fa fa-paw"></i> Medical Info !</h1>
+                                <h1><i class="fa fa-paw"></i>Medical Info !</h1>
                                 <p>©2017 Team 5</p>
                             </div>
                         </div>

@@ -271,6 +271,7 @@
     <Content Include="Global.asax" />
     <Content Include="Service1.svc" />
     <Content Include="Site.Master" />
+    <Content Include="ThongTinCaNhan.aspx" />
     <Content Include="vendors\animate.css\animate.css" />
     <Content Include="vendors\animate.css\animate.min.css" />
     <Content Include="vendors\animate.css\gulpfile.js" />
@@ -4472,6 +4473,7 @@
     <Compile Include="controller\clsSanPhamDichVu_controller.cs" />
     <Compile Include="controller\clsThongSoKyThuat_controller.cs" />
     <Compile Include="controller\clsTTBenhNhan_controller.cs" />
+    <Compile Include="controller\clsUser_controller.cs" />
     <Compile Include="DanhMucChucVu.aspx.cs">
       <DependentUpon>DanhMucChucVu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4525,6 +4527,7 @@
     <Compile Include="entity\clsNhanVien_entity.cs" />
     <Compile Include="entity\clsPhongBan_entity.cs" />
     <Compile Include="entity\clsTTBenhNhan_entity.cs" />
+    <Compile Include="entity\clsUser_entity.cs" />
     <Compile Include="entity\cls_SanPhamDichVu_entity.cs" />
     <Compile Include="entity\cls_ThongSoKyThuat_entity.cs" />
     <Compile Include="Global.asax.cs">
@@ -4555,6 +4558,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ThongTinCaNhan.aspx.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThongTinCaNhan.aspx.designer.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

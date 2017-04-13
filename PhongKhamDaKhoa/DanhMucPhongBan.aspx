@@ -97,7 +97,7 @@
                         <%--   <form id="demo-form3" class="form-horizontal form-label-left"> --%>
                            
 
-                        <div class="form-group" style="padding-bottom:40px;">
+                        <div class="form-group" >
                             <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Phòng Ban" runat="server"  style="text-align:right">
                                 Tên Phòng Ban <span class="required">*</span>
                             </label>
