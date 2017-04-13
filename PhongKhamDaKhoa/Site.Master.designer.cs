@@ -31,6 +31,33 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// lblUserLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserLogin;
+        
+        /// <summary>
+        /// lblUserLogin1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserLogin1;
+        
+        /// <summary>
+        /// lnkLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogout;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
