@@ -28,6 +28,12 @@
             margin: 0 0 20px;
             width: 100%;
         }
+
+        :-webkit-any(article,aside,nav,section) h1 {
+            font-size: 1.5em;
+            -webkit-margin-before: 0.5em;
+            -webkit-margin-after: 0.5em;
+        }
     </style>
 </head>
 <body class="login">
@@ -46,7 +52,7 @@
                         <div>
                             <asp:TextBox ID="txtPassword" class="form-control" runat="server" placeholder="Mật Khẩu" required=""></asp:TextBox>
                         </div>
-                        <div>                            
+                        <div>
                             <asp:Button ID="btnSubmit" class="btn btn-default submit" runat="server" Text="Đăng nhập" OnClick="btnSubmit_Click" />
                         </div>
 
@@ -58,7 +64,7 @@
 
                             <div>
                                 <h1><i class="fa fa-paw"></i> Medical Info !</h1>
-                                <p>©2017 Team 5</p>
+                                <p>©2017 Team5</p>
                             </div>
                         </div>
                     </div>

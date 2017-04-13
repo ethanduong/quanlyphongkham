@@ -126,9 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="src\" />
+    <Folder Include="UPLOAD_FILE\" />
     <Folder Include="Views\Default1\" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +150,7 @@
     <Content Include="css\master.css" />
     <Content Include="css\nprogress.css" />
     <Content Include="DanhMucChucVu.aspx" />
+    <Content Include="DanhMucNguoiDung.aspx" />
     <Content Include="DanhMucPhongBan.aspx" />
     <Content Include="DanhMucSanPhamDichVu.aspx" />
     <Content Include="DanhMucThongSoKyThuat.aspx" />
@@ -4478,6 +4479,13 @@
     </Compile>
     <Compile Include="DanhMucChucVu.aspx.designer.cs">
       <DependentUpon>DanhMucChucVu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMucNguoiDung.aspx.cs">
+      <DependentUpon>DanhMucNguoiDung.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMucNguoiDung.aspx.designer.cs">
+      <DependentUpon>DanhMucNguoiDung.aspx</DependentUpon>
     </Compile>
     <Compile Include="DanhMucPhongBan.aspx.cs">
       <DependentUpon>DanhMucPhongBan.aspx</DependentUpon>

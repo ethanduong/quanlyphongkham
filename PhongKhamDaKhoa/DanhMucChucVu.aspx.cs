@@ -41,40 +41,40 @@ namespace PhongKhamDaKhoa
 
         protected void btnThemMoi_Click(object sender, EventArgs e)
         {
-            
-           // formHeader.Text = "Thêm Mới Chức Vụ";
+
+            // formHeader.Text = "Thêm Mới Chức Vụ";
             lblAction.Text = "insert";
             lblMsg.Text = string.Empty;
-            txtTenCV.Value = string.Empty;
+            txtTenCV.Text = string.Empty;
             pnlAddNewCV.Visible = true;
 
-           
+
         }
 
         protected void btnHuy_Click(object sender, EventArgs e)
         {
-           
-            txtTenCV.Value = string.Empty;
+
+            txtTenCV.Text = string.Empty;
             pnlAddNewCV.Visible = false;
             lblMsg.Text = string.Empty;
         }
 
-     /*   protected bool validate()
-        {
+        /*   protected bool validate()
+           {
 
            
 
-            if (txtTenCV.Text == string.Empty)
-            {
-                lblMsg.Text = "Tên chức vụ không được để trống !";
-                lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
-                txtTenCV.Focus();
-                return false;
-            }
+               if (txtTenCV.Text == string.Empty)
+               {
+                   lblMsg.Text = "Tên chức vụ không được để trống !";
+                   lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                   txtTenCV.Focus();
+                   return false;
+               }
 
-            return true;
-        }
-        */
+               return true;
+           }
+           */
 
         protected void gvDSCV_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -84,7 +84,7 @@ namespace PhongKhamDaKhoa
             if (e.CommandName.ToString() == "cmdEdit")
             {
                 lblMsg.Text = string.Empty;
-              
+
                 lblID_Update.Text = e.CommandArgument.ToString();
                 lblAction.Text = "update";
                 //formHeader.Text = "Cập Nhập Chức Vụ";
@@ -92,9 +92,9 @@ namespace PhongKhamDaKhoa
                 if (errMsg == string.Empty)
                 {
                     pnlAddNewCV.Visible = true;
-                  
-                    txtTenCV.Value = cvent.TEN;
-                   
+
+                    txtTenCV.Text = cvent.TEN;
+
                 }
                 else
                 {
@@ -109,10 +109,11 @@ namespace PhongKhamDaKhoa
                 controller.Delete(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
-
+                    lblMsgCheck.Text = "Đã xóa chức vụ !";
+                    lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                     pnlAddNewCV.Visible = false;
                     LoadDataToGridView();
-                    txtTenCV.Value = string.Empty;
+                    txtTenCV.Text = string.Empty;
                 }
                 else
                 {
@@ -122,55 +123,80 @@ namespace PhongKhamDaKhoa
                 LoadDataToGridView();
             }
         }
+        protected bool validate()
+        {
+            if (txtTenCV.Text == string.Empty)
+            {
+                lblMsg.Text = "Tên chức vụ không được để trống !";
+                lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                lblMsgCheck.Text = "Thêm mới không thành công !";
+                lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                txtTenCV.Focus();
+                return false;
+            }
+            if (txtTenCV.Text.Length > 100)
+            {
+                lblMsg.Text = "Tên chức vụ không được quá 100 ký tự !";
+                lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                lblMsgCheck.Text = "Thêm mới không thành công !";
+                lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                txtTenCV.Focus();
+                return false;
+            }
 
+            return true;
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-           
-            if (lblAction.Text == "insert")
+            if (validate())
             {
-                clsChucVu_entity cvent = new clsChucVu_entity();
-                clsChucVu_controller controller = new clsChucVu_controller();
-               
-               /* if (validate())
-                {*/
+                if (lblAction.Text == "insert")
+                {
+                    clsChucVu_entity cvent = new clsChucVu_entity();
+                    clsChucVu_controller controller = new clsChucVu_controller();
 
-                    cvent.TEN = txtTenCV.Value;
+                    /* if (validate())
+                     {*/
+
+                    cvent.TEN = txtTenCV.Text;
                     controller.Insert(cvent, ref errMsg);
                     if (errMsg == string.Empty)
                     {
-                       
+
                         pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
-                      
-                        txtTenCV.Value = string.Empty;
+                        lblMsgCheck.Text = "Đã thêm mới chức vụ !";
+                        lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                        txtTenCV.Text = string.Empty;
                     }
                     else
                     {
-                        lblMsg.Text = "Thêm mới thất bại !";
-                        lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
+                        lblMsgCheck.Text = "Thêm mới thất bại !";
+                        lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
                 }
                 //else { return; }
-            //} 
-            if (lblAction.Text == "update")
-            {
-                clsChucVu_entity cvent = new clsChucVu_entity();
-                clsChucVu_controller controller = new clsChucVu_controller();
-                //if (validate())
-                //{
+                //} 
+                if (lblAction.Text == "update")
+                {
+                    clsChucVu_entity cvent = new clsChucVu_entity();
+                    clsChucVu_controller controller = new clsChucVu_controller();
+                    //if (validate())
+                    //{
                     cvent.MACV = QLPHONGKHAM.Common.ConvertObj2Int(lblID_Update.Text);
-                    cvent.TEN = txtTenCV.Value;
-                   
-                  
+                    cvent.TEN = txtTenCV.Text;
+
+
                     controller.Update(cvent, ref errMsg);
 
                     if (errMsg == string.Empty)
                     {
-                     
+
                         pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
-                     
-                        txtTenCV.Value = string.Empty;
+                        lblMsgCheck.Text = "Đã thay đổi thông tin chức vụ !";
+                        lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                        txtTenCV.Text = string.Empty;
                     }
                     else
                     {
@@ -178,9 +204,8 @@ namespace PhongKhamDaKhoa
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
                 }
-            //    else { return; }
+            }
 
-            //}
         }
 
         protected void gvDSCV_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -204,12 +229,12 @@ namespace PhongKhamDaKhoa
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
-            txtTenCV.Value = string.Empty;
-           
+            txtTenCV.Text = string.Empty;
+
             lblMsg.Text = string.Empty;
         }
 
-        
+
 
 
     }

@@ -9,7 +9,7 @@ using System.Diagnostics;
 using QLPHONGKHAM;
 namespace QLPHONGKHAM.Entities
 {
-    public class clsNhanVien_entity_Controller
+    public class clsNhanVien_controller
     {
         /// -----------------------------------------------------------------------------
         /// <summary>
@@ -42,20 +42,26 @@ namespace QLPHONGKHAM.Entities
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[5];
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[8];
                 //prms[i] = new System.Data.SqlClient.SqlParameter("@MANV", obj.MANV);
                 //i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@HOTEN", obj.HOTEN);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@NGAYSINH", obj.NGAYSINH);
                 i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@GIOITINH", obj.GIOITINH);
+                i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@DIENTHOAI", obj.DIENTHOAI);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MACV", obj.MACV);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MAPB", obj.MAPB);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@URL_IMAGE", obj.URL_IMAGE);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 5, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 8, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -81,20 +87,26 @@ namespace QLPHONGKHAM.Entities
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[6];
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[9];
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MANV", obj.MANV);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@HOTEN", obj.HOTEN);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@NGAYSINH", obj.NGAYSINH);
                 i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@GIOITINH", obj.GIOITINH);
+                i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@DIENTHOAI", obj.DIENTHOAI);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MACV", obj.MACV);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@MAPB", obj.MAPB);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@URL_IMAGE", obj.URL_IMAGE);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 6, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Update_NhanVien", ref prms, 9, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{

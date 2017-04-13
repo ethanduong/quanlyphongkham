@@ -240,16 +240,19 @@
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
-                            <div class="item form-group">
-                                <div class="control-label col-md-3 col-sm-3 col-xs-12"></div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 btn">
+                            <div class="item form-group">                                
+                                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                                     <asp:Button ID="btnLuu" runat="server" Text="Lưu thông tin" CssClass="btn btn-primary" OnClick="btnLuu_Click"/>
-                                    <button type="reset" class="btn btn-danger">Reset</button>                                 
-                                    <asp:Label ID="lblAction" runat="server" Text="" Visible="false"></asp:Label>   
-                                    <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label> 
+                                    <button type="reset" class="btn btn-danger">Hủy</button>                                 
+                                    <asp:Label ID="lblAction" runat="server" Text="" Visible="false"></asp:Label>                                                                          
                                     <asp:Label ID="lblIDUpdate" runat="server" Text="" Visible="false"></asp:Label>                             
                                 </div>
                             </div>
+                            <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                                <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

@@ -85,3 +85,4 @@ C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamD
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.dll
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.pdb
 C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.dll.licenses
+C:\Users\Admin\Source\Repos\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.csprojResolveAssemblyReference.cache

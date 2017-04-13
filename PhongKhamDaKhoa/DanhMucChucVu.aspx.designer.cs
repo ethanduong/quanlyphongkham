@@ -31,6 +31,15 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Button btnThemMoi;
         
         /// <summary>
+        /// lblMsgCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsgCheck;
+        
+        /// <summary>
         /// pnlAddNewCV control.
         /// </summary>
         /// <remarks>
@@ -46,7 +55,7 @@ namespace PhongKhamDaKhoa {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTenCV;
+        protected global::System.Web.UI.WebControls.TextBox txtTenCV;
         
         /// <summary>
         /// lblAction control.
@@ -58,24 +67,6 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Label lblAction;
         
         /// <summary>
-        /// btnHuy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHuy;
-        
-        /// <summary>
-        /// btnReset control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReset;
-        
-        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
@@ -85,15 +76,6 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// lblMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
-        
-        /// <summary>
         /// lblID_Update control.
         /// </summary>
         /// <remarks>
@@ -101,5 +83,14 @@ namespace PhongKhamDaKhoa {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblID_Update;
+        
+        /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
     }
 }

@@ -13,9 +13,12 @@ namespace QLPHONGKHAM.Entities
         private int _MANV;
         private string _HOTEN;
         private DateTime _NGAYSINH;
+        private bool _GIOITINH;
         private string _DIENTHOAI;
         private int _MACV;
         private int _MAPB;
+        private string _URL_IMAGE;
+        private string _FILE_NAME;        
         //********************************
         public int MANV
         {
@@ -35,6 +38,12 @@ namespace QLPHONGKHAM.Entities
             get { return _NGAYSINH; }
 
             set { _NGAYSINH = value; }
+        }
+        public bool GIOITINH
+        {
+            get { return _GIOITINH; }
+
+            set { _GIOITINH = value; }
         }
 
         public string DIENTHOAI
@@ -57,6 +66,18 @@ namespace QLPHONGKHAM.Entities
 
             set { _MAPB = value; }
         }
+        public string URL_IMAGE
+        {
+            get { return _URL_IMAGE; }
+
+            set { _URL_IMAGE = value; }
+        }
+        public string FILE_NAME
+        {
+            get { return _FILE_NAME; }
+
+            set { _FILE_NAME = value; }
+        }
 
 
 
@@ -66,9 +87,12 @@ namespace QLPHONGKHAM.Entities
             _MANV = 0;
             _HOTEN = string.Empty;
             _NGAYSINH = new DateTime();
+            _GIOITINH = true;
             _DIENTHOAI = string.Empty;
             _MACV = 0;
             _MAPB = 0;
+            _URL_IMAGE = string.Empty;
+            _FILE_NAME = string.Empty;
         }
     }
 }

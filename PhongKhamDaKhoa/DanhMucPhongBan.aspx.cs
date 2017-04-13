@@ -14,13 +14,13 @@ namespace PhongKhamDaKhoa
     {
         private string errMsg;
         private int _stt;
-        protected void Page_Load(object sender, EventArgs e)            
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadDataToGridView();
                 return;
-            }            
+            }
         }
 
         private void LoadDataToGridView()
@@ -40,30 +40,55 @@ namespace PhongKhamDaKhoa
 
         protected void btnThemMoi_Click(object sender, EventArgs e)
         {
-           // formHeader.Text = "Thêm Mới Phòng Ban";
+            // formHeader.Text = "Thêm Mới Phòng Ban";
             lblAction.Text = "insert";
             lblMsg.Text = string.Empty;
-            txtTenPB.Value = string.Empty;
+            txtTenPB.Text = string.Empty;
             pnlAddNewPB.Visible = true;
         }
+        protected bool validate()
+        {
+            if (txtTenPB.Text == string.Empty)
+            {
+                lblMsg.Text = "Tên phòng ban không được để trống !";
+                lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                lblMsgCheck.Text = "Thêm mới không thành công !";
+                lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                txtTenPB.Focus();
+                return false;
+            }
+            if (txtTenPB.Text.Length > 100)
+            {
+                lblMsg.Text = "Tên phòng ban không được quá 100 ký tự !";
+                lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                lblMsgCheck.Text = "Thêm mới không thành công !";
+                lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                txtTenPB.Focus();
+                return false;
+            }
 
+            return true;
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (lblAction.Text == "insert")
+            if (validate())
             {
-                clsPhongBan_entity cvent = new clsPhongBan_entity();
-                clsPhongBan_controller controller = new clsPhongBan_controller();
-                //if (validate())
-                //{
-                    cvent.TENPHONG = txtTenPB.Value;
+                if (lblAction.Text == "insert")
+                {
+                    clsPhongBan_entity cvent = new clsPhongBan_entity();
+                    clsPhongBan_controller controller = new clsPhongBan_controller();
+                    //if (validate())
+                    //{
+                    cvent.TENPHONG = txtTenPB.Text;
                     controller.Insert(cvent, ref errMsg);
                     if (errMsg == string.Empty)
                     {
-                       
+
                         pnlAddNewPB.Visible = false;
                         LoadDataToGridView();
-                     
-                        txtTenPB.Value = string.Empty;
+                        lblMsgCheck.Text = "Đã thêm mới phòng ban !";
+                        lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
+                        txtTenPB.Text = string.Empty;
                     }
                     else
                     {
@@ -71,41 +96,43 @@ namespace PhongKhamDaKhoa
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
                 }
-            //    else { return; }
-            //}
-            if (lblAction.Text == "update")
-            {
-                clsPhongBan_entity cvent = new clsPhongBan_entity();
-                clsPhongBan_controller controller = new clsPhongBan_controller();
-                //if (validate())
-                //{
+                //    else { return; }
+                //}
+                if (lblAction.Text == "update")
+                {
+                    clsPhongBan_entity cvent = new clsPhongBan_entity();
+                    clsPhongBan_controller controller = new clsPhongBan_controller();
+                    //if (validate())
+                    //{
                     cvent.MAPB = QLPHONGKHAM.Common.ConvertObj2Int(lblID_Update.Text);
-                    cvent.TENPHONG = txtTenPB.Value;
+                    cvent.TENPHONG = txtTenPB.Text;
 
                     controller.Update(cvent, ref errMsg);
 
                     if (errMsg == string.Empty)
                     {
-
-                      
+                        lblMsgCheck.Text = "Đã thay đổi thông tin phòng ban !";
+                        lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                         pnlAddNewPB.Visible = false;
                         LoadDataToGridView();
-                        txtTenPB.Value = string.Empty;
+                        txtTenPB.Text = string.Empty;
                     }
                     else
                     {
                         lblMsg.Text = "Thay đổi thông tin thất bại !";
                         lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                     }
-                //}
-                //else { return; }
+                    //}
+                    //else { return; }
 
+                }
             }
+
         }
 
         protected void btnHuy_Click(object sender, EventArgs e)
         {
-            txtTenPB.Value = string.Empty;
+            txtTenPB.Text = string.Empty;
             pnlAddNewPB.Visible = false;
             lblMsg.Text = string.Empty;
         }
@@ -113,7 +140,7 @@ namespace PhongKhamDaKhoa
         //{
 
 
-        //    if (txtTenPB.Value == string.Empty)
+        //    if (txtTenPB.Text == string.Empty)
         //    {
         //        lblMsg.Text = "Tên phòng ban không được để trống !";
         //        lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
@@ -134,18 +161,18 @@ namespace PhongKhamDaKhoa
                 lblMsg.Text = string.Empty;
                 lblID_Update.Text = e.CommandArgument.ToString();
                 lblAction.Text = "update";
-             //   formHeader.Text = "Cập Nhập Phòng Ban";
+                //   formHeader.Text = "Cập Nhập Phòng Ban";
                 cvent = controller.GetData(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
                     pnlAddNewPB.Visible = true;
-                    txtTenPB.Value = cvent.TENPHONG;
+                    txtTenPB.Text = cvent.TENPHONG;
 
                 }
                 else
                 {
-                    lblMsg.Text = "Lỗi xử lý dữ liệu !";
-                    lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
+                    lblMsgCheck.Text = "Lỗi xử lý dữ liệu !";
+                    lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                 }
             }
             if (e.CommandName.ToString() == "cmdDelete")
@@ -153,13 +180,14 @@ namespace PhongKhamDaKhoa
                 controller.Delete(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
-                  
+                    lblMsgCheck.Text = "Đã xóa phòng ban !";
+                    lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                     LoadDataToGridView();
                 }
                 else
                 {
-                    lblMsg.Text = "Không thể xóa phòng ban !";
-                    lblMsg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
+                    lblMsgCheck.Text = "Không thể xóa phòng ban !";
+                    lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                 }
                 LoadDataToGridView();
             }
@@ -186,8 +214,8 @@ namespace PhongKhamDaKhoa
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
-            txtTenPB.Value = string.Empty;
-           
+            txtTenPB.Text = string.Empty;
+
             lblMsg.Text = string.Empty;
         }
     }
