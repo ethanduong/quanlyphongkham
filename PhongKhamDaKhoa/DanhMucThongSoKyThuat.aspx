@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhMucThongSoKyThuat.aspx.cs" Inherits="PhongKhamDaKhoa.DanhMucThongSoKyThuat" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -17,13 +18,7 @@
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Mã Dịch Vụ">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblMaDV" runat="server" Text='<%# Bind("ID_SP")%>'></asp:Label>
-                                </ItemTemplate>
 
-                                <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Mã Thông Số">
                                 <ItemTemplate>
                                     <asp:Label ID="lblMaTS" runat="server" Text='<%# Bind("ID")%>'></asp:Label>
@@ -31,7 +26,13 @@
 
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Tên Dịch Vụ">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMaDV" runat="server" Text='<%# Bind("TENDV")%>'></asp:Label>
+                                </ItemTemplate>
 
+                                <HeaderStyle CssClass="text-center" />
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tên Thông Số">
                                 <ItemTemplate>
                                     <asp:Label ID="lblTenTS" runat="server" Text='<%# Bind("TENTHONGSO") %>'></asp:Label>
@@ -39,7 +40,7 @@
 
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                          
+
 
                             <asp:TemplateField>
                                 <ItemTemplate>
@@ -74,7 +75,7 @@
         </div>
     </div>
 
-         <div class="clearfix"></div>
+    <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12  col-xs-12">
             <asp:Panel ID="pnlAddNewTS" runat="server" Visible="false">
@@ -102,38 +103,38 @@
 
                         <br />
                         <%--   <form id="demo-form3" class="form-horizontal form-label-left"> --%>
-                             <div class="form-group" >
-                            <label class="control-label col-md-4 col-sm-4 col-xs-12"  for="Mã Dịch Vụ" runat="server" style="text-align:right">
-                                Mã Dịch Vụ <span class="required">*</span>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Mã Dịch Vụ" runat="server" style="text-align: right">
+                                Tên Dịch Vụ <span class="required">*</span>
                             </label>
-                             <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
                                 <asp:DropDownList ID="drplControlTSKT" runat="server" CssClass="form-control col-md-7 col-xs-12">
                                 </asp:DropDownList>
 
                             </div>
-                       </div>
-                 
+                        </div>
 
-                        <div class="form-group" >
-                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Thông Số" runat="server"  style="text-align:right">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Thông Số" runat="server" style="text-align: right">
                                 Tên Thông Số <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
 
                                 <input type="text" id="txtTenTS" name="Tên Thông Số" runat="server" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
-                       </div>
-                        
-             
-                          <div class="clearfix"></div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
                         <div class="ln_solid"></div>
-                          <div class="clearfix"></div>
+                        <div class="clearfix"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
                                 <asp:Label ID="lblAction" runat="server" Visible="False"></asp:Label>
                                 <asp:Button ID="btnHuy" runat="server" Text="Hủy" CssClass="btn btn-primary" OnClick="btnHuy_Click" />
                                 <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
-                                <asp:Button ID="btnSubmit" runat="server" Text="Lưu" CssClass="btn btn-success" OnClick= "btnSubmit_Click" />
+                                <asp:Button ID="btnSubmit" runat="server" Text="Lưu" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
                                 <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
                                 <asp:Label ID="lblID_Update" runat="server" Visible="False"></asp:Label>
 

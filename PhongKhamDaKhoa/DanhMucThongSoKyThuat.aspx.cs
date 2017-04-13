@@ -19,6 +19,7 @@ namespace PhongKhamDaKhoa
             if (!IsPostBack)
             {
                 LoadDataToGridView();
+                LoadMaDV();
                 return;
             }
         }
@@ -26,7 +27,7 @@ namespace PhongKhamDaKhoa
         private void LoadDataToGridView()
         {
 
-            string strSQL = "SELECT * FROM dbo.THONGSOKYTHUAT";
+            string strSQL = "SELECT * FROM view_THONGSOKYTHUAT";
             DataTable dt = new DataTable();
             dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
             Grv_TSKT.DataSource = dt;
@@ -36,14 +37,13 @@ namespace PhongKhamDaKhoa
 
         private void LoadMaDV()
         {
-            string strSQL = "select ID_SP from dbo.SANPHAM_DICHVU";
+            string strSQL = "select * from dbo.SANPHAM_DICHVU";
             DataTable dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
             drplControlTSKT.DataSource = dt;
-            drplControlTSKT.DataTextField = "ID_SP";
+            drplControlTSKT.DataTextField = "TENDV";
             drplControlTSKT.DataValueField = "ID_SP";
             drplControlTSKT.DataBind();
-            ViewState["dtts"] = dt;
-
+         
 
         }
 
@@ -55,12 +55,14 @@ namespace PhongKhamDaKhoa
         {
             pnlAddNewTS.Visible = false;
             txtTenTS.Value = "";
+            drplControlTSKT.ClearSelection();
           
         }
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
             txtTenTS.Value = "";
+            drplControlTSKT.ClearSelection();
            
         }
 
@@ -70,7 +72,7 @@ namespace PhongKhamDaKhoa
             {
                 cls_ThongSoKyThuat_entity cvent = new cls_ThongSoKyThuat_entity();
                 clsThongSoKyThuat_controller controller = new clsThongSoKyThuat_controller();
-                cvent.ID_SP = int.Parse(drplControlTSKT.SelectedItem.Text);
+                cvent.ID_SP = Int32.Parse(drplControlTSKT.SelectedValue);
                 cvent.TENTHONGSO = txtTenTS.Value;
               
                 controller.Insert(cvent, ref errMsg);
@@ -96,7 +98,7 @@ namespace PhongKhamDaKhoa
                 clsThongSoKyThuat_controller controller = new clsThongSoKyThuat_controller();
 
                 cvent.ID = QLPHONGKHAM.Common.ConvertObj2Int(lblID_Update.Text);
-                cvent.ID_SP = int.Parse(drplControlTSKT.SelectedItem.Text);
+                cvent.ID_SP = Int32.Parse(drplControlTSKT.SelectedValue);
                 cvent.TENTHONGSO = txtTenTS.Value;
             
 
@@ -134,7 +136,7 @@ namespace PhongKhamDaKhoa
                 {
                     pnlAddNewTS.Visible = true;
                     LoadMaDV();
-                    drplControlTSKT.Text = cvent.ID_SP.ToString();
+                    drplControlTSKT.SelectedValue = cvent.ID_SP.ToString();
                     txtTenTS.Value = cvent.TENTHONGSO;
 
                    

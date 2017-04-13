@@ -19,14 +19,15 @@ namespace PhongKhamDaKhoa
             if (!IsPostBack)
             {
                 LoadDataToGridView();
-                return;
+                LoadMaPB();
+               
             }
 
         }
         private void LoadDataToGridView()
         {
 
-            string strSQL = "SELECT * FROM dbo.SANPHAM_DICHVU";
+            string strSQL = "SELECT * FROM view_SANPHAMDICHVU";
             DataTable dt = new DataTable();
             dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
             Grv_DichVu.DataSource = dt;
@@ -36,13 +37,15 @@ namespace PhongKhamDaKhoa
 
         private void LoadMaPB()
         {
-            string strSQL = "select MAPB from dbo.PHONGBAN";
-            DataTable dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
-            drplControl.DataSource = dt;          
-            drplControl.DataTextField = "MAPB";
-            drplControl.DataValueField = "MAPB"; 
+            string strSQL = "SELECT * FROM PHONGBAN";
+            DataTable dt = new DataTable();
+            dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
+
+            drplControl.DataSource = dt;
+            drplControl.DataTextField = "TENPHONG";
+            drplControl.DataValueField = "MAPB";
             drplControl.DataBind();
-            ViewState["dtdv"] = dt;
+        
             
 
         }
@@ -66,6 +69,7 @@ namespace PhongKhamDaKhoa
             pnlAddNewSP.Visible = false;
             txtTenDV.Value = "";
             txtMoTa.Value = "";
+            drplControl.ClearSelection();
           
         }
 
@@ -73,7 +77,7 @@ namespace PhongKhamDaKhoa
         {
             txtTenDV.Value = "";
             txtMoTa.Value = "";
-           
+            drplControl.ClearSelection();
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -81,8 +85,8 @@ namespace PhongKhamDaKhoa
             if (lblAction.Text == "insert")
             {
                 cls_SanPhamDichVu_entity cvent = new cls_SanPhamDichVu_entity();
-                clsSanPhamDichVu_controller controller = new clsSanPhamDichVu_controller();               
-                    cvent.MAPB =int.Parse(drplControl.SelectedItem.Text);
+                clsSanPhamDichVu_controller controller = new clsSanPhamDichVu_controller();
+                cvent.MAPB = Int32.Parse(drplControl.SelectedValue);
                     cvent.TENDV = txtTenDV.Value;
                     cvent.MOTA = txtMoTa.Value;
                     controller.Insert(cvent, ref errMsg);
@@ -108,7 +112,7 @@ namespace PhongKhamDaKhoa
                 clsSanPhamDichVu_controller controller = new clsSanPhamDichVu_controller();            
                
                     cvent.IDSP = QLPHONGKHAM.Common.ConvertObj2Int(lblID_Update.Text);
-                    cvent.MAPB =int.Parse(drplControl.SelectedItem.Text);
+                    cvent.MAPB = Int32.Parse(drplControl.SelectedValue);
                     cvent.TENDV = txtTenDV.Value;
                     cvent.MOTA = txtMoTa.Value;
 
@@ -151,7 +155,7 @@ namespace PhongKhamDaKhoa
                     txtTenDV.Value = cvent.TENDV;
                     txtMoTa.Value = cvent.MOTA;
 
-                    drplControl.Text = cvent.MAPB.ToString();
+                    drplControl.SelectedValue = cvent.MAPB.ToString();
 
                 }
                 else
