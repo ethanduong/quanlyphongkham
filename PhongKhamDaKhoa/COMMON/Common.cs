@@ -769,23 +769,7 @@ namespace QLPHONGKHAM
         /// <param name="sInput"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public static string Decode(string sInput)
-        {
-
-
-            try
-            {
-                return sInput;
-
-
-            }
-            catch (Exception ex)
-            {
-                return string.Empty;
-
-            }
-
-        }
+        
 
         /// <summary>
         /// DINHNQ
