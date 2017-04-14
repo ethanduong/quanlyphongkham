@@ -770,7 +770,7 @@ namespace QLPHONGKHAM
         {
             var prf = KeyDerivationPrf.HMACSHA256;
             var rng = RandomNumberGenerator.Create();
-            const int iterCount = 10000;
+            const int iterCount = 1000;
             const int saltSize = 128 / 8;
             const int numBytesRequested = 256 / 8;
 

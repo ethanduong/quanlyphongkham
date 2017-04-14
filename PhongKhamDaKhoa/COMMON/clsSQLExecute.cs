@@ -80,15 +80,15 @@ namespace QLPHONGKHAM
 
 
         // DUng ham sau de thuc hien 1 cau truy van hoac thuc hien 1 store procedure de tra lai 1 datatable
-        public static System.Data.DataTable LoadDataFromDB(string LoadSql, string TableName, ref string ExMsg, CommandType cmdType = CommandType.Text, System.Data.SqlClient.SqlParameter[] Prms = null, int PrmCount = 0)
+        public static DataTable LoadDataFromDB(string LoadSql, string TableName, ref string ExMsg, CommandType cmdType = CommandType.Text, System.Data.SqlClient.SqlParameter[] Prms = null, int PrmCount = 0)
         {
             //Dim Conn As New System.Data.SqlClient.SqlConnection
 
-            System.Data.SqlClient.SqlCommand cmd = default(System.Data.SqlClient.SqlCommand);
+            SqlCommand cmd = default(SqlCommand);
 
-            System.Data.SqlClient.SqlDataAdapter dadp = default(System.Data.SqlClient.SqlDataAdapter);
+            SqlDataAdapter dadp = default(SqlDataAdapter);
 
-            System.Data.DataSet ds = default(System.Data.DataSet);
+            DataSet ds = default(DataSet);
 
 
             try
@@ -100,7 +100,7 @@ namespace QLPHONGKHAM
                     return null;
                 }
 
-                cmd = new System.Data.SqlClient.SqlCommand();
+                cmd = new SqlCommand();
 
                 cmd.Connection = oConn;
 
@@ -120,7 +120,7 @@ namespace QLPHONGKHAM
 
                 }
 
-                dadp = new System.Data.SqlClient.SqlDataAdapter(cmd);
+                dadp = new SqlDataAdapter(cmd);
 
                 ds = new DataSet();
 
@@ -239,7 +239,7 @@ namespace QLPHONGKHAM
         }
 
         public static DataTable Execute_SP_GetDataTable_withParameters(string SpName, string TableName, ref System.Data.SqlClient.SqlParameter[] Prms, int PrmCount, ref string errMsg)
-        {         
+        {
             System.Data.SqlClient.SqlCommand cmd = default(System.Data.SqlClient.SqlCommand);
             System.Data.DataSet ds = default(System.Data.DataSet);
             //  Dim Conn As New System.Data.SqlClient.SqlConnection
@@ -277,7 +277,7 @@ namespace QLPHONGKHAM
                     {
                         cmd.Parameters.Add(Prms[i]);
                     }
-                    
+
                 }
                 using (var da = new SqlDataAdapter(cmd))
                 {

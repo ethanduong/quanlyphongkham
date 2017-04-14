@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Diagnostics;
-using System.Collections;
-using Microsoft.VisualBasic;
 using QLPHONGKHAM;
 
 namespace PhongKhamDaKhoa
@@ -22,14 +13,12 @@ namespace PhongKhamDaKhoa
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Common.ShowError_Label(ref lblError, Common.HashPassword("123456"));
             string strSQL = null;
-
             string errMsg = null;
-            strSQL = "  select * from [dbo].[USER] where USERNAME = '" + txtUsername.Text + "' ";
-            if (QLPHONGKHAM.clsSQLExecute.CheckExistDataBySQL_clause(strSQL,"USER") == false)
+            strSQL = " select * from [dbo].[USER] where USERNAME = '" + txtUsername.Text.ToLower() + "' ";
+            if (clsSQLExecute.CheckExistDataBySQL_clause(strSQL,"[dbo].[USER]") == false)
             {
-                QLPHONGKHAM.Common.ShowError_Label(ref lblError, "Không tồn tại tên đăng nhập trong hệ thống.");
+                Common.ShowError_Label(ref lblError, txtUsername.Text.ToLower() + "không tồn tại tên đăng nhập trong hệ thống.");
                 //QLPHONGKHAM.Common.ShowError_Label(ref lblError, Common.HashPassword("123456"));
                 return;
 
@@ -37,12 +26,12 @@ namespace PhongKhamDaKhoa
             
             if (Common.VerifyHashedPassword(clsSQLExecute.GetValueFromTable("[dbo].[USER]", "PASS", "USERNAME='" + txtUsername.Text + "' ", string.Empty, ref errMsg), txtPassword.Text) == false)
             {
-                QLPHONGKHAM.Common.ShowError_Label(ref lblError, "Sai mật khẩu.");
+                Common.ShowError_Label(ref lblError, "Sai mật khẩu.");
                 return;
             }
             //====================
 
-            Session[QLPHONGKHAM.Constant.SESSION_NAMES.ID_UserLogin] = QLPHONGKHAM.clsSQLExecute.GetValueFromTable("[dbo].[USER]", "ID", "USERNAME='" + txtUsername.Text + "' ", string.Empty, ref errMsg);
+            Session[Constant.SESSION_NAMES.ID_UserLogin] = clsSQLExecute.GetValueFromTable("[dbo].[USER]", "ID", "USERNAME='" + txtUsername.Text + "' ", string.Empty, ref errMsg);
             Response.Redirect("Default.aspx");
 
         }
