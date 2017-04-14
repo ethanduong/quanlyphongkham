@@ -36,7 +36,7 @@ namespace PhongKhamDaKhoa.controller
                 
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TEN", obj.TEN);
               
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("dbo.sp_Insert_CHUCVU", ref prms, 1, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("dbo.sp_Insert_CHUCVU", ref prms, 1, ref errMsg);
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace PhongKhamDaKhoa.controller
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TEN", obj.TEN);
           
              
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("dbo.sp_Update_CHUCVU", ref prms, 2, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("dbo.sp_Update_CHUCVU", ref prms, 2, ref errMsg);
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace PhongKhamDaKhoa.controller
         public void Delete(int sIDCV, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM dbo.CHUCVU WHERE MACV=" + sIDCV;
-            QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
+            QLPHONGKHAM.clsSQLExecute.ExecuteSQL(sqlstr, ref errMsg);
         }
 
         public List<clsChucVu_entity> GetList(string strWhereCondition, string sOrderBy, ref string errMsg)

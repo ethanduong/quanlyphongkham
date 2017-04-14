@@ -45,7 +45,7 @@ namespace PhongKhamDaKhoa.controller
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_USER", ref prms, 5, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("sp_Insert_USER", ref prms, 5, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -84,7 +84,7 @@ namespace PhongKhamDaKhoa.controller
                 prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
                
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("dbo.sp_Update_USER", ref prms, 6, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("dbo.sp_Update_USER", ref prms, 6, ref errMsg);
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace PhongKhamDaKhoa.controller
         public void Delete(int ID, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM [USER] WHERE ID=" + ID;
-            QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
+            QLPHONGKHAM.clsSQLExecute.ExecuteSQL(sqlstr, ref errMsg);
             //if (string.IsNullOrEmpty(errMsg))
             //{
             //    clsEVNHN_CSKH_PHANQUYEN_Controller objPQ_ctrl = new clsEVNHN_CSKH_PHANQUYEN_Controller();

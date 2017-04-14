@@ -106,3 +106,8 @@ E:\Work\pj4\PhongKhamDaKhoa\bin\System.Web.WebPages.Deployment.xml
 E:\Work\pj4\PhongKhamDaKhoa\bin\System.Web.WebPages.Razor.xml
 E:\Work\pj4\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.dll
 E:\Work\pj4\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.pdb
+E:\Work\pj4\PhongKhamDaKhoa\bin\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Work\pj4\PhongKhamDaKhoa\bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\Work\pj4\PhongKhamDaKhoa\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Work\pj4\PhongKhamDaKhoa\bin\Microsoft.AspNetCore.Cryptography.Internal.xml
+E:\Work\pj4\PhongKhamDaKhoa\bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml

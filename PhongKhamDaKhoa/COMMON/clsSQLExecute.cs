@@ -96,7 +96,7 @@ namespace QLPHONGKHAM
                 ExMsg = string.Empty;
                 if ((TaoConnection() == false))
                 {
-                    ExMsg = " Error : Can not connect to database !";
+                    ExMsg = " Error: Can not connect to database! ";
                     return null;
                 }
 
@@ -165,7 +165,7 @@ namespace QLPHONGKHAM
         }
 
         // Dung ham sau de thuc hien 1 store procedure voi tham so 
-        public static bool ExcuteSP(string SpName, ref System.Data.SqlClient.SqlParameter[] Prms, int PrmCount, ref string ExMsg)
+        public static bool ExecuteSP(string SpName, ref System.Data.SqlClient.SqlParameter[] Prms, int PrmCount, ref string ExMsg)
         {
 
             System.Data.SqlClient.SqlCommand cmd = default(System.Data.SqlClient.SqlCommand);
@@ -238,7 +238,7 @@ namespace QLPHONGKHAM
 
         }
 
-        public static DataTable Excute_SP_GetDataTable_withParameters(string SpName, string TableName, ref System.Data.SqlClient.SqlParameter[] Prms, int PrmCount, ref string errMsg)
+        public static DataTable Execute_SP_GetDataTable_withParameters(string SpName, string TableName, ref System.Data.SqlClient.SqlParameter[] Prms, int PrmCount, ref string errMsg)
         {         
             System.Data.SqlClient.SqlCommand cmd = default(System.Data.SqlClient.SqlCommand);
             System.Data.DataSet ds = default(System.Data.DataSet);
@@ -302,7 +302,7 @@ namespace QLPHONGKHAM
             }
         }
         //  Dung ham sau de thuc hien 1 sql String voi tham so
-        public static bool Excute_SQL_String_withParameters(string strSQL_withPara, ref System.Data.SqlClient.SqlParameter[] Prms, int PrmCount, ref string ExMsg)
+        public static bool Execute_SQL_String_withParameters(string strSQL_withPara, ref System.Data.SqlClient.SqlParameter[] Prms, int PrmCount, ref string ExMsg)
         {
 
             System.Data.SqlClient.SqlCommand cmd = default(System.Data.SqlClient.SqlCommand);
@@ -380,7 +380,7 @@ namespace QLPHONGKHAM
         // Dung ham sau de thuc hien 1 store procedure khong co tham so 
         // Return true : Có nghĩa đã thực hiện thành công truy vấn
         // Return false : Có nghĩa không thực hiên thành công
-        public static bool ExcuteSP_NoParam(string SpName, ref string ExMsg)
+        public static bool ExecuteSP_NoParam(string SpName, ref string ExMsg)
         {
 
             System.Data.SqlClient.SqlCommand cmd = default(System.Data.SqlClient.SqlCommand);
@@ -432,7 +432,7 @@ namespace QLPHONGKHAM
         // Dung ham sau de thuc hien cau lenh SQL khogn tra lai datatable
         // Return true : Có nghĩa đã thực hiện thành công truy vấn
         // Return false : Có nghĩa không thực hiên thành công
-        public static bool ExcuteSQL(string Sql, ref string ExMsg)
+        public static bool ExecuteSQL(string Sql, ref string ExMsg)
         {
             bool functionReturnValue = false;
 
@@ -462,7 +462,7 @@ namespace QLPHONGKHAM
                 //Catch ex As System.Data.System.Data.SqlClient.SqlException
                 //    Throw ex
                 //    'Return False
-                //    ExcuteSQL = False
+                //    ExecuteSQL = False
             }
             catch (Exception ex)
             {
@@ -897,29 +897,26 @@ namespace QLPHONGKHAM
         /// <param name="strSQL"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public static bool CheckExistDataBySQL_clause(string strSQL)
+        public static bool CheckExistDataBySQL_clause(string strSQL, string tblName)
         {
 
             try
             {
                 string errMsg = string.Empty;
-                DataTable dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "tem", ref errMsg);
+                DataTable dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, tblName, ref errMsg);
 
                 if (dt.Rows.Count > 0)
                 {
                     return true;
-
                 }
                 else
                 {
                     return false;
                 }
-
             }
             catch (Exception ex)
             {
                 return false;
-
             }
 
         }

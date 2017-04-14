@@ -61,7 +61,7 @@ namespace QLPHONGKHAM.Entities
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_NhanVien", ref prms, 8, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("sp_Insert_NhanVien", ref prms, 8, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -106,7 +106,7 @@ namespace QLPHONGKHAM.Entities
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Update_NhanVien", ref prms, 9, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("sp_Update_NhanVien", ref prms, 9, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -130,7 +130,7 @@ namespace QLPHONGKHAM.Entities
         public void Delete(int MANV, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM NHANVIEN WHERE MANV=" + MANV;
-            QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
+            QLPHONGKHAM.clsSQLExecute.ExecuteSQL(sqlstr, ref errMsg);
             //if (string.IsNullOrEmpty(errMsg))
             //{
             //    clsEVNHN_CSKH_PHANQUYEN_Controller objPQ_ctrl = new clsEVNHN_CSKH_PHANQUYEN_Controller();
