@@ -41,7 +41,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Web.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -174,6 +173,21 @@
     <Content Include="images\user.png" />
     <Content Include="images\visa.png" />
     <Content Include="Login.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Antlr3.Runtime.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\AspNet.ScriptManager.bootstrap.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.FriendlyUrls.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Mvc.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Optimization.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\WebGrease.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\css\master.css" />
+    <Content Include="obj\Release\Package\PackageTmp\DanhSachBenhNhan.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\DanhSachNhanVien.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -215,8 +229,11 @@
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap-theme.min.css.map" />
     <Content Include="css\bootstrap.css.map" />
+    <Content Include="obj\Release\CoreCompileInputs.cache" />
+    <Content Include="obj\Release\TransformWebConfig\original\Web.config" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="QuanTriVien.aspx" />
     <Content Include="Scripts\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -4473,6 +4490,7 @@
     <Compile Include="controller\clsSanPhamDichVu_controller.cs" />
     <Compile Include="controller\clsThongSoKyThuat_controller.cs" />
     <Compile Include="controller\clsTTBenhNhan_controller.cs" />
+    <Compile Include="controller\clsUser_controller.cs" />
     <Compile Include="DanhMucChucVu.aspx.cs">
       <DependentUpon>DanhMucChucVu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4533,6 +4551,7 @@
     <Compile Include="entity\clsNhanVien_entity.cs" />
     <Compile Include="entity\clsPhongBan_entity.cs" />
     <Compile Include="entity\clsTTBenhNhan_entity.cs" />
+    <Compile Include="entity\clsUser_entity.cs" />
     <Compile Include="entity\cls_SanPhamDichVu_entity.cs" />
     <Compile Include="entity\cls_ThongSoKyThuat_entity.cs" />
     <Compile Include="Global.asax.cs">
@@ -4546,7 +4565,17 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanTriVien.aspx.cs">
+      <DependentUpon>QuanTriVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuanTriVien.aspx.designer.cs">
+      <DependentUpon>QuanTriVien.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -4563,6 +4592,9 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ThongTinCaNhan.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
