@@ -39,7 +39,7 @@
                                 <ItemStyle CssClass="text-center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Chức Vụ)">
+                            <asp:TemplateField HeaderText="Chức Vụ">
                                 <ItemTemplate>
                                     <asp:Label ID="lblChieuCao" runat="server" Text='<%# Bind("TEN")%>'></asp:Label>
                                 </ItemTemplate>
