@@ -67,15 +67,10 @@ C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamD
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.WebPages.Razor.dll
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\WebGrease.dll
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.Helpers.xml
-C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.Mvc.xml
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.Razor.xml
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.WebPages.xml
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.WebPages.Deployment.xml
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.WebPages.Razor.xml
-C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Web.Optimization.xml
-C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\Antlr3.Runtime.pdb
-C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\Newtonsoft.Json.xml
-C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.csprojResolveAssemblyReference.cache
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.dll
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\obj\Debug\PhongKhamDaKhoa.pdb

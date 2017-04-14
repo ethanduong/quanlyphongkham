@@ -31,7 +31,7 @@ namespace PhongKhamDaKhoa
 
             }
 
-            strSQL = "select * from [dbo].[USER] where USERNAME ='" + txtUsername.Text + "'  AND PASS ='" + QLPHONGKHAM.Common.Encode(txtPassword.Text) + "' ";
+            strSQL = "select * from [dbo].[USER] where USERNAME ='" + txtUsername.Text + "'  AND PASS ='" + QLPHONGKHAM.Common.md5(txtPassword.Text) + "' ";
 
             if (QLPHONGKHAM.clsSQLExecute.CheckExistDataBySQL_clause(strSQL) == false)
             {

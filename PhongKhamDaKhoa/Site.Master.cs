@@ -15,16 +15,16 @@ namespace PhongKhamDaKhoa
         private string ErrMsg;
         protected void Page_Load(object sender, EventArgs e)
         {
-        //    clsUser_entity objUser = new clsUser_entity();
-        //    clsUser_controller controller = new clsUser_controller();
+            clsUser_entity objUser = new clsUser_entity();
+            clsUser_controller controller = new clsUser_controller();
 
-        //    objUser = controller.GetData(QLPHONGKHAM.Common.GetUserID(), ref ErrMsg);
-     
-        //     lblUserLogin.Text = objUser.HOTEN;
-        //    lblUserLogin1.Text = objUser.HOTEN;
-            
-       
-           
+            objUser = controller.GetData(QLPHONGKHAM.Common.GetUserID(), ref ErrMsg);
+
+            lblUserLogin.Text = objUser.HOTEN;
+            lblUserLogin1.Text = objUser.HOTEN;
+            AnhUser.ImageUrl = objUser.FILE_NAME;
+            AnhUser1.ImageUrl = objUser.FILE_NAME;
+
         }
 
         protected void lnkLogout_Click(object sender, EventArgs e)
