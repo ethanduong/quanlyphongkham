@@ -903,7 +903,7 @@ namespace QLPHONGKHAM
             try
             {
                 string errMsg = string.Empty;
-                DataTable dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, tblName, ref errMsg);
+                DataTable dt = LoadDataFromDB(strSQL, tblName, ref errMsg);
 
                 if (dt.Rows.Count > 0)
                 {

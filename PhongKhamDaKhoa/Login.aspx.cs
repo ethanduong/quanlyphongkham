@@ -15,23 +15,23 @@ namespace PhongKhamDaKhoa
         {
             string strSQL = null;
             string errMsg = null;
-            strSQL = " select * from [dbo].[USER] where USERNAME = '" + txtUsername.Text.ToLower() + "' ";
-            if (clsSQLExecute.CheckExistDataBySQL_clause(strSQL,"[dbo].[USER]") == false)
+            strSQL = " select * from [phongkham].[dbo].[USER] where USERNAME = '" + txtUsername.Text.ToLower() + "' ";
+            if (clsSQLExecute.CheckExistDataBySQL_clause(strSQL, "[phongkham].[dbo].[USER]") == false)
             {
                 Common.ShowError_Label(ref lblError, txtUsername.Text.ToLower() + "không tồn tại tên đăng nhập trong hệ thống.");
                 //QLPHONGKHAM.Common.ShowError_Label(ref lblError, Common.HashPassword("123456"));
                 return;
 
             }
-            
-            if (Common.VerifyHashedPassword(clsSQLExecute.GetValueFromTable("[dbo].[USER]", "PASS", "USERNAME='" + txtUsername.Text + "' ", string.Empty, ref errMsg), txtPassword.Text) == false)
+
+            if (Common.VerifyHashedPassword(clsSQLExecute.GetValueFromTable("[phongkham].[dbo].[USER]", "PASS", "USERNAME='" + txtUsername.Text + "' ", string.Empty, ref errMsg), txtPassword.Text) == false)
             {
                 Common.ShowError_Label(ref lblError, "Sai mật khẩu.");
                 return;
             }
             //====================
 
-            Session[Constant.SESSION_NAMES.ID_UserLogin] = clsSQLExecute.GetValueFromTable("[dbo].[USER]", "ID", "USERNAME='" + txtUsername.Text + "' ", string.Empty, ref errMsg);
+            Session[Constant.SESSION_NAMES.ID_UserLogin] = clsSQLExecute.GetValueFromTable("[phongkham].[dbo].[USER]", "ID", "USERNAME='" + txtUsername.Text + "' ", string.Empty, ref errMsg);
             Response.Redirect("Default.aspx");
 
         }
