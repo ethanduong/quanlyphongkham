@@ -10,7 +10,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <asp:GridView ID="Grv_NhanVien" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered grv" OnRowCommand="Grv_BenhNhan_RowCommand">
+                    <asp:GridView ID="Grv_USER" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered grv" OnRowCommand="Grv_USER_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="STT">
                                 <ItemTemplate>
@@ -18,33 +18,13 @@
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Họ Tên">
+                            </asp:TemplateField>                            
+                            <asp:TemplateField HeaderText="Tên Đăng Nhập">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblHoTen" runat="server" Text='<%# Bind("HOTEN")%>'></asp:Label>
+                                    <asp:Label ID="lblUserName" runat="server" Text='<%# Bind("USERNAME") %>'></asp:Label>
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Ngày Sinh">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblNgaySinh" runat="server" Text='<%# Eval("NGAYSINH", "{0:dd/MM/yyyy}") %>'></asp:Label>
-                                </ItemTemplate>
-                                <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Giới Tính">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblGioiTinh" runat="server" Text='<%# Bind("GIOITINH")%>'></asp:Label>
-                                </ItemTemplate>
-                                <ItemStyle CssClass="text-center" />
-                                <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Chức Vụ)">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblChieuCao" runat="server" Text='<%# Bind("TEN")%>'></asp:Label>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                                <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>
+                            </asp:TemplateField>                                                        
                             <asp:TemplateField HeaderText="Phòng Ban">
                                 <ItemTemplate>
                                     <asp:Label ID="lblCanNang" runat="server" Text='<%# Bind("TENPHONG")%>'></asp:Label>
@@ -52,12 +32,12 @@
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Điện Thoại">
+                            <asp:TemplateField HeaderText="Tên Nhân Viên">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblDienThoai" runat="server" Text='<%# Bind("DIENTHOAI")%>'></asp:Label>
+                                    <asp:Label ID="lblHoTen" runat="server" Text='<%# Bind("HOTEN") %>'></asp:Label>
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>
+                            </asp:TemplateField>                                
                             <asp:TemplateField HeaderText="Ảnh đại diện">
                                 <ItemTemplate>
                                     <asp:Image ID="Img_NhanVien" runat="server" ImageUrl='<%# Bind("FILE_NAME")%>' CssClass="img-responsive" Height="80px" />
@@ -66,7 +46,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("MANV")%>'>  
+                                    <asp:LinkButton ID="link_edit" CommandName="cmdEdit" Text="Sửa" runat="server" CommandArgument='<%# Bind("ID")%>'>  
                                     </asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle Width="55px" HorizontalAlign="Center" />
@@ -74,7 +54,7 @@
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Thông Tin Bệnh Nhân"
-                                        runat="server" CommandArgument='<%# Bind("MANV")%>' OnClientClick="javascript: return my_confirm();"> 
+                                        runat="server" CommandArgument='<%# Bind("ID")%>' OnClientClick="javascript: return my_confirm();"> 
                                     </asp:LinkButton>
                                     <script>
                                         function my_confirm() {
@@ -103,7 +83,7 @@
             <asp:Panel ID="PnlThemMoi" runat="server" Visible="false">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Thông Tin Nhân Viên</h2>
+                        <h2>Thông Tin Người Sử Dụng</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -120,54 +100,46 @@
                         <br />
                         <div class="form-horizontal form-label-left">
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="HoTen">
-                                    Họ Tên <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                    Tên Đăng Nhập
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:TextBox ID="txtHoTen" runat="server" required="required" class="form-control col-md-7 col-xs-12" data-validate-length-range="6,100"></asp:TextBox>
+                                    <asp:TextBox ID="txtUserName" runat="server" class="form-control col-md-7 col-xs-12"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="NgaySinh">
-                                    Ngày Sinh <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                    Mật Khẩu
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:TextBox class="form-control has-feedback-left" ID="single_cal3" ClientIDMode="Static" aria-describedby="inputSuccess2Status3" runat="server" required="required"></asp:TextBox>
-                                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                    <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                                    <asp:TextBox ID="txtPassWord" runat="server" TextMode="Password" class="form-control col-md-7 col-xs-12"></asp:TextBox>
                                 </div>
-                            </div>
-                            <div class="item form-group">
-                                <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                    Giới Tính                                                
-                                </label>
-                                <div class="col-md-9 col-sm-9 col-xs-12 rdb">
-                                    <asp:RadioButtonList ID="rdbgGioiTinh" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" CssClass="radio-btn">
-                                        <asp:ListItem Text="Nam" Value="true" Selected="True"></asp:ListItem>
-                                        <asp:ListItem Text="Nữ" Value="false"></asp:ListItem>
-                                    </asp:RadioButtonList>
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Chức vụ</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:DropDownList ID="DrlChucVu" runat="server" class="form-control col-md-7 col-xs-12"></asp:DropDownList>
-                                </div>
-                            </div>
+                            </div>                                                        
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                     Phòng Ban
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:DropDownList ID="DrlPhongBan" runat="server" class="form-control col-md-7 col-xs-12"></asp:DropDownList>
+                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="DrlPhongBan" runat="server" class="form-control col-md-7 col-xs-12" OnSelectedIndexChanged="DrlPhongBan_SelectedIndexChanged" AutoPostBack="true" AppendDataBoundItems="true" DataTextField="" DataValueField="-1">
+                                                <asp:ListItem>-- Chọn phòng ban --</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </ContentTemplate>                                        
+                                    </asp:UpdatePanel>
+                                    
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
-                                    Điện Thoại 
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                    Nhân Viên
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <asp:TextBox ID="txtDienThoai" type="tel" runat="server" name="phone" required="required" Style="padding-left: 10px" class="form-control col-md-7 col-xs-12" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="DrdlNhanVien" runat="server" class="form-control col-md-7 col-xs-12"></asp:DropDownList>
+                                        </ContentTemplate>                                        
+                                    </asp:UpdatePanel>                                    
                                 </div>
                             </div>
                             <div class="item form-group">

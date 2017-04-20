@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace QLPHONGKHAM
 {
@@ -776,7 +777,30 @@ namespace QLPHONGKHAM
             Buffer.BlockCopy(subkey, 0, outputBytes, 13 + saltSize, subkey.Length);
             return Convert.ToBase64String(outputBytes);
         }
-
+        public static string Decodes(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        public static string decodepass(string password)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(password);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        public string Encodes(string data)
+        {
+            string str2;
+            try
+            {
+                byte[] buffer = new byte[data.Length];
+                str2 = Convert.ToBase64String(Encoding.UTF8.GetBytes(data));
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error in base64Encode" + exception.Message);
+            }
+            return str2;
+        }
         public static bool VerifyHashedPassword(string hashedPassword, string providedPassword)
         {
             var decodedHashedPassword = Convert.FromBase64String(hashedPassword);

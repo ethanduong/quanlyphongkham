@@ -11,7 +11,8 @@ namespace PhongKhamDaKhoa.entity
         private int _ID;
         private string _USERNAME;
         private string _PASS;
-        private string _HOTEN;
+        private int _MAPB;
+        private int _MANV;
         private string _URL_IMAGE;
         private string _FILE_NAME;
 
@@ -32,11 +33,16 @@ namespace PhongKhamDaKhoa.entity
             get { return _PASS; }
             set { _PASS = value; }
         }
-
-        public string HOTEN
+     
+        public int MAPB
         {
-            get { return _HOTEN; }
-            set { _HOTEN = value; }
+            get { return _MAPB; }
+            set { _MAPB = value; }
+        }
+        public int MANV
+        {
+            get { return _MANV; }
+            set { _MANV = value; }
         }
         public string URL_IMAGE
         {
@@ -53,7 +59,8 @@ namespace PhongKhamDaKhoa.entity
             _ID = 0;
             _USERNAME = string.Empty;
             _PASS = string.Empty;
-            _HOTEN = string.Empty;
+            _MAPB = 0;
+            _MANV = 0;
             _URL_IMAGE = string.Empty;
             _FILE_NAME = string.Empty;
         }

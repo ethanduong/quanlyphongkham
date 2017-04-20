@@ -897,26 +897,29 @@ namespace QLPHONGKHAM
         /// <param name="strSQL"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public static bool CheckExistDataBySQL_clause(string strSQL, string tblName)
+        public static bool CheckExistDataBySQL_clause(string strSQL)
         {
 
             try
             {
                 string errMsg = string.Empty;
-                DataTable dt = LoadDataFromDB(strSQL, tblName, ref errMsg);
+                DataTable dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "tem", ref errMsg);
 
                 if (dt.Rows.Count > 0)
                 {
                     return true;
+
                 }
                 else
                 {
                     return false;
                 }
+
             }
             catch (Exception ex)
             {
                 return false;
+
             }
 
         }

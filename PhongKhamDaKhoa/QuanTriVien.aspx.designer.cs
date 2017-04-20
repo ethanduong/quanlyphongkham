@@ -13,13 +13,13 @@ namespace PhongKhamDaKhoa {
     public partial class QuanTriVien {
         
         /// <summary>
-        /// Grv_NhanVien control.
+        /// Grv_USER control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Grv_NhanVien;
+        protected global::System.Web.UI.WebControls.GridView Grv_USER;
         
         /// <summary>
         /// btnThemMoi control.
@@ -49,40 +49,31 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.Panel PnlThemMoi;
         
         /// <summary>
-        /// txtHoTen control.
+        /// txtUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoTen;
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
-        /// single_cal3 control.
+        /// txtPassWord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox single_cal3;
+        protected global::System.Web.UI.WebControls.TextBox txtPassWord;
         
         /// <summary>
-        /// rdbgGioiTinh control.
+        /// UpdatePanel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdbgGioiTinh;
-        
-        /// <summary>
-        /// DrlChucVu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DrlChucVu;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
         /// DrlPhongBan control.
@@ -94,13 +85,22 @@ namespace PhongKhamDaKhoa {
         protected global::System.Web.UI.WebControls.DropDownList DrlPhongBan;
         
         /// <summary>
-        /// txtDienThoai control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDienThoai;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// DrdlNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DrdlNhanVien;
         
         /// <summary>
         /// Img_Upload control.

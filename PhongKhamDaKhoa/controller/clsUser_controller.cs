@@ -32,20 +32,22 @@ namespace PhongKhamDaKhoa.controller
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[5];
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[6];
                 //prms[i] = new System.Data.SqlClient.SqlParameter("@MABN", obj.MABN);
-                //i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@HOTEN", obj.HOTEN);
-                i = i + 1;
+                //i = i + 1;             
                 prms[i] = new System.Data.SqlClient.SqlParameter("@USERNAME", obj.USERNAME);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@PASS", obj.PASS);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@MAPB", obj.MAPB);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@MANV", obj.MANV);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@URL_IMAGE", obj.URL_IMAGE);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
 
-                QLPHONGKHAM.clsSQLExecute.ExecuteSP("sp_Insert_USER", ref prms, 5, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("sp_Insert_USER", ref prms, 6, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -70,21 +72,23 @@ namespace PhongKhamDaKhoa.controller
             {
                 errMsg = "";
                 int i = 0;
-                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[6];
+                System.Data.SqlClient.SqlParameter[] prms = new System.Data.SqlClient.SqlParameter[7];
                 prms[i] = new System.Data.SqlClient.SqlParameter("@ID", obj.ID);
-                i = i + 1;
-                prms[i] = new System.Data.SqlClient.SqlParameter("@HOTEN", obj.HOTEN);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@USERNAME", obj.USERNAME);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@PASS", obj.PASS);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@MAPB", obj.MAPB);
+                i = i + 1;
+                prms[i] = new System.Data.SqlClient.SqlParameter("@MANV", obj.MANV);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@URL_IMAGE", obj.URL_IMAGE);
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@FILE_NAME", obj.FILE_NAME);
                
 
-                QLPHONGKHAM.clsSQLExecute.ExecuteSP("dbo.sp_Update_USER", ref prms, 6, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("dbo.sp_Update_USER", ref prms, 7, ref errMsg);
             }
             catch (Exception ex)
             {

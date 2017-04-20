@@ -15,10 +15,10 @@ namespace PhongKhamDaKhoa
         {
             string strSQL = null;
             string errMsg = null;
-            strSQL = " select * from [phongkham].[dbo].[USER] where USERNAME = '" + txtUsername.Text.ToLower() + "' ";
-            if (clsSQLExecute.CheckExistDataBySQL_clause(strSQL, "[phongkham].[dbo].[USER]") == false)
+            strSQL = " select * from [phongkham].[dbo].[USER] where USERNAME = '" + txtUsername.Text + "' ";
+            if (clsSQLExecute.CheckExistDataBySQL_clause(strSQL) == false)
             {
-                Common.ShowError_Label(ref lblError, txtUsername.Text.ToLower() + "không tồn tại tên đăng nhập trong hệ thống.");
+                Common.ShowError_Label(ref lblError, txtUsername.Text + " không tồn tại tên đăng nhập trong hệ thống.");
                 //QLPHONGKHAM.Common.ShowError_Label(ref lblError, Common.HashPassword("123456"));
                 return;
 
