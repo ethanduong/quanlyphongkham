@@ -37,7 +37,7 @@ namespace PhongKhamDaKhoa.controller
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TENTHONGSO", obj.TENTHONGSO);
             
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("dbo.sp_Insert_THONGSOKYTHUAT", ref prms, 2, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("dbo.sp_Insert_THONGSOKYTHUAT", ref prms, 2, ref errMsg);
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace PhongKhamDaKhoa.controller
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TENTHONGSO", obj.TENTHONGSO);
                
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("dbo.sp_Update_THONGSOKYTHUAT", ref prms, 3, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("dbo.sp_Update_THONGSOKYTHUAT", ref prms, 3, ref errMsg);
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace PhongKhamDaKhoa.controller
         public void Delete(int sID, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM dbo.THONGSOKYTHUAT WHERE ID=" + sID;
-            QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
+            QLPHONGKHAM.clsSQLExecute.ExecuteSQL(sqlstr, ref errMsg);
 
         }
 

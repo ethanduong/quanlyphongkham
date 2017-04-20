@@ -49,7 +49,7 @@ namespace PhongKhamDaKhoa.controller
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TIENSU", obj.TIENSU);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Insert_TT_BENHNHAN", ref prms, 7, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("sp_Insert_TT_BENHNHAN", ref prms, 7, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -92,7 +92,7 @@ namespace PhongKhamDaKhoa.controller
                 i = i + 1;
                 prms[i] = new System.Data.SqlClient.SqlParameter("@TIENSU", obj.TIENSU);
 
-                QLPHONGKHAM.clsSQLExecute.ExcuteSP("sp_Update_TT_BENHNHAN", ref prms, 8, ref errMsg);
+                QLPHONGKHAM.clsSQLExecute.ExecuteSP("sp_Update_TT_BENHNHAN", ref prms, 8, ref errMsg);
 
                 //if (string.IsNullOrEmpty(errMsg))
                 //{
@@ -116,7 +116,7 @@ namespace PhongKhamDaKhoa.controller
         public void Delete(int MABN, ref string errMsg)
         {
             string sqlstr = "DELETE  FROM TT_BENHNHAN WHERE MABN=" + MABN;
-            QLPHONGKHAM.clsSQLExecute.ExcuteSQL(sqlstr, ref errMsg);
+            QLPHONGKHAM.clsSQLExecute.ExecuteSQL(sqlstr, ref errMsg);
             //if (string.IsNullOrEmpty(errMsg))
             //{
             //    clsEVNHN_CSKH_PHANQUYEN_Controller objPQ_ctrl = new clsEVNHN_CSKH_PHANQUYEN_Controller();
