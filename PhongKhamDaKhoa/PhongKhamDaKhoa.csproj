@@ -181,6 +181,7 @@
     <Content Include="DanhMucSanPhamDichVu.aspx" />
     <Content Include="DanhMucThongSoKyThuat.aspx" />
     <Content Include="DanhSachBenhNhan.aspx" />
+    <Content Include="DanhSachChoKham.aspx" />
     <Content Include="DanhSachNhanVien.aspx" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
@@ -262,7 +263,7 @@
     <Content Include="obj\Release\TransformWebConfig\original\Web.config" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="QuanTriVien.aspx" />
+    <Content Include="DanhSachQuanTriVien.aspx" />
     <Content Include="Scripts\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -4513,13 +4514,16 @@
     </Compile>
     <Compile Include="COMMON\Constant.cs" />
     <Compile Include="COMMON\Null.cs" />
+    <Compile Include="controller\clsChiTietKhamBenh_controller.cs" />
     <Compile Include="controller\clsChucVu_controller.cs" />
     <Compile Include="controller\clsNhanVien_controller.cs" />
+    <Compile Include="controller\clsPhieuKhamBenh_controller.cs" />
     <Compile Include="controller\clsPhongBan_controller.cs" />
     <Compile Include="controller\clsSanPhamDichVu_controller.cs" />
     <Compile Include="controller\clsThongSoKyThuat_controller.cs" />
     <Compile Include="controller\clsTTBenhNhan_controller.cs" />
     <Compile Include="controller\clsUser_controller.cs" />
+    <Compile Include="controller\cls_PhanQuyen_controller.cs" />
     <Compile Include="DanhMucChucVu.aspx.cs">
       <DependentUpon>DanhMucChucVu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4562,6 +4566,13 @@
     <Compile Include="DanhSachBenhNhan.aspx.designer.cs">
       <DependentUpon>DanhSachBenhNhan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DanhSachChoKham.aspx.cs">
+      <DependentUpon>DanhSachChoKham.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhSachChoKham.aspx.designer.cs">
+      <DependentUpon>DanhSachChoKham.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DanhSachNhanVien.aspx.cs">
       <DependentUpon>DanhSachNhanVien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4576,8 +4587,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="entity\clsChiTietKham_entity.cs" />
     <Compile Include="entity\clsChucVu_entity.cs" />
     <Compile Include="entity\clsNhanVien_entity.cs" />
+    <Compile Include="entity\clsPhanQuyen_entity.cs" />
+    <Compile Include="entity\clsPhieuKhamBenh_entity.cs" />
     <Compile Include="entity\clsPhongBan_entity.cs" />
     <Compile Include="entity\clsTTBenhNhan_entity.cs" />
     <Compile Include="entity\clsUser_entity.cs" />
@@ -4598,12 +4612,12 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanTriVien.aspx.cs">
-      <DependentUpon>QuanTriVien.aspx</DependentUpon>
+    <Compile Include="DanhSachQuanTriVien.aspx.cs">
+      <DependentUpon>DanhSachQuanTriVien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="QuanTriVien.aspx.designer.cs">
-      <DependentUpon>QuanTriVien.aspx</DependentUpon>
+    <Compile Include="DanhSachQuanTriVien.aspx.designer.cs">
+      <DependentUpon>DanhSachQuanTriVien.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QuanTriVien.aspx.cs" Inherits="PhongKhamDaKhoa.QuanTriVien" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DanhSachQuanTriVien.aspx.cs" Inherits="PhongKhamDaKhoa.QuanTriVien" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="headerContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -18,13 +19,13 @@
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>                            
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tên Đăng Nhập">
                                 <ItemTemplate>
                                     <asp:Label ID="lblUserName" runat="server" Text='<%# Bind("USERNAME") %>'></asp:Label>
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>                                                        
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Phòng Ban">
                                 <ItemTemplate>
                                     <asp:Label ID="lblCanNang" runat="server" Text='<%# Bind("TENPHONG")%>'></asp:Label>
@@ -37,7 +38,7 @@
                                     <asp:Label ID="lblHoTen" runat="server" Text='<%# Bind("HOTEN") %>'></asp:Label>
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="text-center" />
-                            </asp:TemplateField>                                
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Ảnh đại diện">
                                 <ItemTemplate>
                                     <asp:Image ID="Img_NhanVien" runat="server" ImageUrl='<%# Bind("FILE_NAME")%>' CssClass="img-responsive" Height="80px" />
@@ -114,7 +115,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <asp:TextBox ID="txtPassWord" runat="server" TextMode="Password" class="form-control col-md-7 col-xs-12"></asp:TextBox>
                                 </div>
-                            </div>                                                        
+                            </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                     Phòng Ban
@@ -125,9 +126,9 @@
                                             <asp:DropDownList ID="DrlPhongBan" runat="server" class="form-control col-md-7 col-xs-12" OnSelectedIndexChanged="DrlPhongBan_SelectedIndexChanged" AutoPostBack="true" AppendDataBoundItems="true" DataTextField="" DataValueField="-1">
                                                 <asp:ListItem>-- Chọn phòng ban --</asp:ListItem>
                                             </asp:DropDownList>
-                                        </ContentTemplate>                                        
+                                        </ContentTemplate>
                                     </asp:UpdatePanel>
-                                    
+
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -138,8 +139,8 @@
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                         <ContentTemplate>
                                             <asp:DropDownList ID="DrdlNhanVien" runat="server" class="form-control col-md-7 col-xs-12"></asp:DropDownList>
-                                        </ContentTemplate>                                        
-                                    </asp:UpdatePanel>                                    
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -166,6 +167,30 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </asp:Panel>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <asp:Panel ID="pnlPhanQuyen" runat="server" Visible="false">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Thông Tin Phân Quyền</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
                     </div>
                 </div>
             </asp:Panel>
