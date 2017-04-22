@@ -1,0 +1,363 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.Master.cs" Inherits="PhongKhamDaKhoa.Site2Master" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <%--<asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>--%>
+    <%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet" />
+    <link href="css/master.css" rel="stylesheet" />
+    <style>
+        .radio-btn input[type=radio], .radio-btn label {
+            cursor: pointer;
+        }
+
+        .radio-btn label {
+            margin-right: 15px;
+            margin-top: 8px;
+            font-style: normal;
+        }
+
+        .form-group label {
+        }
+
+        .radio-btn input[type=radio] {
+            width: 15px;
+            height: 15px;
+            margin-top: 8px;
+            margin-right: 5px;
+            border-color: #26B99A;
+            margin-left: 10px;
+        }
+
+        .form-group label, .form-group input {
+        }
+
+        input[type='radio']:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #d1d3d1;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 2px solid white;
+        }
+
+        input[type='radio']:checked:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #26B99A;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 2px solid #d1d3d1;
+        }
+
+        .x_title {
+            text-align: center;
+        }
+    </style>
+    <asp:ContentPlaceHolder runat="server" ID="headerContent"></asp:ContentPlaceHolder>
+</head>
+<body class="nav-md">
+    <form runat="server" class="container body form-horizontal" novalidate>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="Default.aspx" class="site_title"><i class="fa fa-paw"></i><span>Medical Info </span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <asp:Label ID="lblUserLogin" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3></h3>
+                            <ul class="nav side-menu">
+                                <li><a href="Default.aspx"><i class="fa fa-home"></i>Trang Chủ </a>
+                                </li>
+                                <li>                                    
+                                    <a><i class="fa fa-edit"></i>Danh mục <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="DanhSachBenhNhan.aspx">Danh sách bệnh nhân</a></li>
+                                        <li><a href="DanhSachNhanVien.aspx">Danh sách nhân viên</a></li>
+                                        <li><a href="DanhSachQuanTriVien.aspx">Danh sách người sử dụng</a></li>
+                                        <li><a href="DanhMucThongSoKyThuat.aspx">Danh mục thông số kỹ thuật</a></li>
+                                        <li><a href="DanhMucSanPhamDichVu.aspx">Danh mục sản phẩm dịch vụ</a></li>
+                                        <li><a href="DanhMucChucVu.aspx">Danh mục chức vụ</a></li>
+                                        <li><a href="DanhMucPhongBan.aspx">Danh mục phòng ban</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-desktop"></i>Thông tin bệnh nhân<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="DanhSachBenhNhan.aspx">Danh sách bệnh nhân</a></li>                                        
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-table"></i>Danh sách chờ khám <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="#">Danh sách khám bệnh</a></li>   
+                                        <li><a href="#">Danh sách xét nghiệm</a></li>   
+                                        <li><a href="#">Danh sách chụp X-Quang - CT</a></li> 
+                                        <li><a href="#">Danh sách siêu âm</a></li>   
+                                        <li><a href="#">Danh sách nội soi</a></li>
+                                        <li><a href="#">Danh sách điện tim</a></li>                                           
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-bar-chart-o"></i>Khám bệnh<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="#"">Khám tổng quát</a></li>
+                                        <li><a href="#">Khám tai mũi họng</a></li>
+                                        <li><a href="#">Khám tim mạch</a></li>
+                                        <li><a href="#">Khám tiết niệu</a></li>
+                                        <li><a href="#">Khám thai sản</a></li>                                         
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Xét nghiệm<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="fixed_sidebar.html">Xét nghiệm máu</a></li>
+                                        <li><a href="fixed_footer.html">Xét nghiệm nước tiểu</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="Login.aspx">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/img.jpg" alt="">
+                                    <asp:Label ID="lblUserLogin1" runat="server" Text=""></asp:Label>
+
+
+
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="ThongTinCaNhan.aspx">Thông tin cá nhân</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>
+                                    <li>
+                                       <asp:LinkButton ID="lnkLogout" runat="server" Text="Đăng xuất" ToolTip="Đăng xuất khỏi hệ thống"
+                                            OnClick="lnkLogout_Click"></asp:LinkButton></li>
+                                </ul>
+                            </li>
+
+                            <li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <%--<span class="badge bg-green">6</span>--%>
+                                </a>                                
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+
+        <!-- jQuery -->
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="vendors/nprogress/nprogress.js"></script>
+        <!-- Chart.js -->
+        <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+        <!-- gauge.js -->
+        <script src="vendors/gauge.js/dist/gauge.min.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+        <!-- iCheck -->
+        <script src="vendors/iCheck/icheck.min.js"></script>
+        <!-- Skycons -->
+        <script src="vendors/skycons/skycons.js"></script>
+        <!-- Flot -->
+        <script src="vendors/Flot/jquery.flot.js"></script>
+        <script src="vendors/Flot/jquery.flot.pie.js"></script>
+        <script src="vendors/Flot/jquery.flot.time.js"></script>
+        <script src="vendors/Flot/jquery.flot.stack.js"></script>
+        <script src="vendors/Flot/jquery.flot.resize.js"></script>
+        <!-- Flot plugins -->
+        <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+        <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+        <script src="vendors/flot.curvedlines/curvedLines.js"></script>
+        <!-- DateJS -->
+        <script src="vendors/DateJS/build/date.js"></script>
+        <!-- JQVMap -->
+        <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
+        <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="vendors/moment/min/moment.min.js"></script>
+        <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- Datatables -->
+        <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+        <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+        <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+        <script src="vendors/jszip/dist/jszip.min.js"></script>
+        <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+        <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+        <!-- bootstrap-wysiwyg -->
+        <script src="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+        <script src="vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+        <script src="vendors/google-code-prettify/src/prettify.js"></script>
+        <!-- jQuery Tags Input -->
+        <script src="vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+        <!-- Switchery -->
+        <script src="vendors/switchery/dist/switchery.min.js"></script>
+        <!-- Select2 -->
+        <script src="vendors/select2/dist/js/select2.full.min.js"></script>
+        <!-- Parsley -->
+        <script src="vendors/parsleyjs/dist/parsley.min.js"></script>
+        <!-- Autosize -->
+        <script src="vendors/autosize/dist/autosize.min.js"></script>
+        <!-- jQuery autocomplete -->
+        <script src="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+        <!-- starrr -->
+        <script src="vendors/starrr/dist/starrr.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".grv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable({
+                    "language": {
+                        "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                        "zeroRecords": "Không tìm thấy",
+                        "info": "Trang _PAGE_ / _PAGES_",
+                        "infoEmpty": "Không tìm thấy dữ liệu cần tìm",
+                        "infoFiltered": "(Lọc từ _MAX_ bản ghi)",
+                        "search": "Tìm kiếm:",
+                        "paginate": {
+                            "previous": "Trước",
+                            "next": "Sau"
+                        }
+                    }
+                });
+            });
+        </script>
+        <asp:ContentPlaceHolder runat="server" ID="contentFooter"></asp:ContentPlaceHolder>
+        <!-- Custom Theme Scripts -->
+        <script src="Scripts/custom.js"></script>
+    </form>
+</body>
+</html>

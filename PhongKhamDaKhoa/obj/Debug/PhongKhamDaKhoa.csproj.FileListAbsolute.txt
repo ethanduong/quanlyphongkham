@@ -125,3 +125,5 @@ C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamD
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.AspNetCore.Cryptography.Internal.xml
 C:\Users\user\Downloads\Aptech\Sem4\Project\MyProject\quanlyphongkham\PhongKhamDaKhoa\bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml
+E:\Work\pj4\PhongKhamDaKhoa\bin\Microsoft.Web.XmlTransform.dll
+E:\Work\pj4\PhongKhamDaKhoa\bin\NuGet.Core.dll
