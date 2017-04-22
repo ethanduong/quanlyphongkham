@@ -6,13 +6,13 @@
 *.user
 *.userosscache
 *.sln.docstates
-
-# User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
 Web.config
 Web.*.config
 PhongKhamDaKhoa/Web.config
 PhongKhamDaKhoa/Web.*.config
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
 
 # Build results
 [Dd]ebug/
