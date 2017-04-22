@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using QLPHONGKHAM;
 using PhongKhamDaKhoa.entity;
 using PhongKhamDaKhoa.controller;
-
+using QLPHONGKHAM.Entities;
 namespace PhongKhamDaKhoa
 {
     public partial class SiteMaster : MasterPage
@@ -15,13 +15,18 @@ namespace PhongKhamDaKhoa
         private string ErrMsg;
         protected void Page_Load(object sender, EventArgs e)
         {
-        //    clsUser_entity objUser = new clsUser_entity();
-        //    clsUser_controller controller = new clsUser_controller();
+            clsUser_entity objUser = new clsUser_entity();
+            clsUser_controller controller = new clsUser_controller();
 
-        //    objUser = controller.GetData(QLPHONGKHAM.Common.GetUserID(), ref ErrMsg);
-     
-        //     lblUserLogin.Text = objUser.HOTEN;
-        //    lblUserLogin1.Text = objUser.HOTEN;
+            objUser = controller.GetData(QLPHONGKHAM.Common.GetUserID(), ref ErrMsg);
+            clsNhanVien_entity nv = new clsNhanVien_entity();
+            clsNhanVien_controller con = new clsNhanVien_controller();
+            nv = con.GetData(objUser.MANV, ref ErrMsg);
+
+             lblUserLogin.Text = nv.HOTEN;
+            lblUserLogin1.Text = nv.HOTEN;
+            anh1.ImageUrl = objUser.FILE_NAME;
+            anh2.ImageUrl = objUser.FILE_NAME;
             
        
            

@@ -120,7 +120,8 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                          <%--  <img src="images/img.jpg" alt="..." class="img-circle profile_img">--%>
+                            <asp:Image runat ="server" ID="anh1" CssClass="img-circle profile_img" Height="70px"/>
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -215,7 +216,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">
+                                  <asp:Image runat="server" ID="anh2" />
                                     <asp:Label ID="lblUserLogin1" runat="server" Text=""></asp:Label>
 
 
