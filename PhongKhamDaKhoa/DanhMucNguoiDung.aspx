@@ -32,7 +32,7 @@
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Phòng Ban">
+                            <asp:TemplateField HeaderText="Phòng ban">
                                 <ItemTemplate>
                                     <asp:Label ID="lblPhongban" runat="server" Text='<%# Bind("TENPHONG")%>'></asp:Label>
                                 </ItemTemplate>
@@ -72,7 +72,7 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" UseSubmitBehavior="False" />
+                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" UseSubmitBehavior="False" />
                     <br />
                     <asp:Label ID="lblMsgCheck" runat="server" Text=""></asp:Label>
                 </div>
@@ -119,7 +119,7 @@
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    Phòng Ban
+                                    Phòng ban
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <asp:DropDownList ID="DrlPhongBan" runat="server" class="form-control col-md-7 col-xs-12"></asp:DropDownList>

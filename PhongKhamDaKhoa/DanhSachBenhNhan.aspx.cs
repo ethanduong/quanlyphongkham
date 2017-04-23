@@ -118,7 +118,7 @@ namespace PhongKhamDaKhoa
                     if (errMsg == string.Empty)
                     {
                         LoadDataToGridView();
-                        lblMsgCheck.Text = "Đã thêm mới thông tin bệnh nhân!";
+                        lblMsgCheck.Text = "Đã Thêm mới thông tin bệnh nhân!";
                         lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff ");
                         clearForm();
                     }

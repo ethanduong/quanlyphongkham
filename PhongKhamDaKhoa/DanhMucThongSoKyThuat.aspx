@@ -26,7 +26,7 @@
 
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Tên Dịch Vụ">
+                            <asp:TemplateField HeaderText="Tên dịch vụ">
                                 <ItemTemplate>
                                     <asp:Label ID="lblMaDV" runat="server" Text='<%# Bind("TENDV")%>'></asp:Label>
                                 </ItemTemplate>
@@ -69,7 +69,7 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" />
+                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" />
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
                         <%--   <form id="demo-form3" class="form-horizontal form-label-left"> --%>
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Mã Dịch Vụ" runat="server" style="text-align: right">
-                                Tên Dịch Vụ <span class="required">*</span>
+                                Tên dịch vụ <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <asp:DropDownList ID="drplControlTSKT" runat="server" CssClass="form-control col-md-7 col-xs-12">

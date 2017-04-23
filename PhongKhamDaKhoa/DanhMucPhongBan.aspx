@@ -19,7 +19,7 @@
         <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Danh Sách Phòng Ban</h2>
+                    <h2>Danh Sách Phòng ban</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -32,7 +32,7 @@
                                 <ItemStyle HorizontalAlign="Center" Width="60px"/>
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>                            
-                            <asp:TemplateField HeaderText="Tên Phòng Ban">
+                            <asp:TemplateField HeaderText="Tên phòng ban">
                                 <ItemTemplate>
                                     <asp:Label ID="lblTenPB" runat="server" Text='<%# Bind("TENPHONG") %>'></asp:Label>
                                 </ItemTemplate>
@@ -49,7 +49,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Thông Tin Phòng Ban"
+                                    <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Thông Tin Phòng ban"
                                         runat="server" CommandArgument='<%# Bind("MAPB")%>' OnClientClick="javascript: return my_confirm();"> 
                                     </asp:LinkButton>
                                     <script>
@@ -67,7 +67,7 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" />
+                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" />
                     <br />
                     <asp:Label ID="lblMsgCheck" runat="server" Text=""></asp:Label>
                 </div>
@@ -81,7 +81,7 @@
             <asp:Panel ID="pnlAddNewPB" runat="server" Visible="false">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Thêm mới phòng ban</h2>
+                        <h2>Thêm mới Phòng ban</h2>
                         <ul class="nav navbar-right panel_toolbox text-right">
                             <li><a class="close-link"><i class="fa fa-close"></i></a>
                             </li>
@@ -97,8 +97,8 @@
 
 
                         <div class="form-group">
-                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Phòng Ban" runat="server" style="text-align: right">
-                                Tên Phòng Ban <span class="required">*</span>
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên phòng ban" runat="server" style="text-align: right">
+                                Tên phòng ban <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <asp:TextBox ID="txtTenPB" runat="server" required="required" class="form-control col-md-7 col-xs-12"></asp:TextBox>

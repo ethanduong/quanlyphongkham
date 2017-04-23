@@ -49,7 +49,7 @@ namespace PhongKhamDaKhoa
 
         protected void btnThemMoi_Click(object sender, EventArgs e)
         {
-            // formHeader.Text = "Thêm Mới Phòng Ban";
+            // formHeader.Text = "Thêm mới Phòng ban";
             lblAction.Text = "insert";
             lblMsg.Text = string.Empty;
             txtTenPB.Text = string.Empty;
@@ -95,7 +95,7 @@ namespace PhongKhamDaKhoa
 
                         pnlAddNewPB.Visible = false;
                         LoadDataToGridView();
-                        lblMsgCheck.Text = "Đã thêm mới phòng ban !";
+                        lblMsgCheck.Text = "Đã Thêm mới Phòng ban !";
                         lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                         txtTenPB.Text = string.Empty;
                     }
@@ -120,7 +120,7 @@ namespace PhongKhamDaKhoa
 
                     if (errMsg == string.Empty)
                     {
-                        lblMsgCheck.Text = "Đã thay đổi thông tin phòng ban !";
+                        lblMsgCheck.Text = "Đã thay đổi thông tin Phòng ban !";
                         lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                         pnlAddNewPB.Visible = false;
                         LoadDataToGridView();
@@ -170,7 +170,7 @@ namespace PhongKhamDaKhoa
                 lblMsg.Text = string.Empty;
                 lblID_Update.Text = e.CommandArgument.ToString();
                 lblAction.Text = "update";
-                //   formHeader.Text = "Cập Nhập Phòng Ban";
+                //   formHeader.Text = "Cập Nhập Phòng ban";
                 cvent = controller.GetData(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
@@ -189,13 +189,13 @@ namespace PhongKhamDaKhoa
                 controller.Delete(id, ref errMsg);
                 if (errMsg == string.Empty)
                 {
-                    lblMsgCheck.Text = "Đã xóa phòng ban !";
+                    lblMsgCheck.Text = "Đã xóa Phòng ban !";
                     lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                     LoadDataToGridView();
                 }
                 else
                 {
-                    lblMsgCheck.Text = "Không thể xóa phòng ban !";
+                    lblMsgCheck.Text = "Không thể xóa Phòng ban !";
                     lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000 ");
                 }
                 LoadDataToGridView();

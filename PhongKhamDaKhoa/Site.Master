@@ -143,12 +143,12 @@
                                     <a><i class="fa fa-edit"></i>Danh mục <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="DanhSachBenhNhan.aspx">Danh sách bệnh nhân</a></li>
-                                        <li><a href="DanhSachNhanVien.aspx">Danh sách nhân viên</a></li>
+                                        <li><a href="DanhSachNhanVien.aspx">Danh sách Nhân viên</a></li>
                                         <li><a href="DanhSachQuanTriVien.aspx">Danh sách người sử dụng</a></li>
                                         <li><a href="DanhMucThongSoKyThuat.aspx">Danh mục thông số kỹ thuật</a></li>
                                         <li><a href="DanhMucSanPhamDichVu.aspx">Danh mục sản phẩm dịch vụ</a></li>
                                         <li><a href="DanhMucChucVu.aspx">Danh mục chức vụ</a></li>
-                                        <li><a href="DanhMucPhongBan.aspx">Danh mục phòng ban</a></li>
+                                        <li><a href="DanhMucPhongBan.aspx">Danh mục Phòng ban</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-desktop"></i>Thông tin bệnh nhân<span class="fa fa-chevron-down"></span></a>

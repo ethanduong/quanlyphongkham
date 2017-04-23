@@ -137,7 +137,7 @@ namespace PhongKhamDaKhoa
             }
             if (DrdlNhanVien.SelectedValue==string.Empty)
             {
-                lblMsgCheck.Text = "Hãy chọn nhân viên trong danh sách !";
+                lblMsgCheck.Text = "Hãy chọn Nhân viên trong danh sách !";
                 lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");                
                 txtUserName.Focus();
                 return false;
@@ -188,7 +188,7 @@ namespace PhongKhamDaKhoa
                     if (errMsg == string.Empty)
                     {
                         LoadDataToGridView();
-                        lblMsgCheck.Text = "Đã thêm mới thông tin người sử dụng!";
+                        lblMsgCheck.Text = "Đã Thêm mới thông tin người sử dụng!";
                         lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff ");
                         clearForm();
                         Response.Redirect(Request.Url.AbsoluteUri);
@@ -230,7 +230,7 @@ namespace PhongKhamDaKhoa
                         clearForm();
                         LoadDataToGridView();
                         PnlThemMoi.Visible = false;
-                        lblMsgCheck.Text = "Đã thay đổi thông tin nhân viên!";
+                        lblMsgCheck.Text = "Đã thay đổi thông tin Nhân viên!";
                         lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff ");
                         PnlThemMoi.Visible = false;
                         Response.Redirect(Request.Url.AbsoluteUri);

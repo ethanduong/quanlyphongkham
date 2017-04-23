@@ -7,7 +7,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Danh Sách Bệnh Nhân</h2>
+                    <h2>Danh sách Bệnh nhân</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -20,20 +20,20 @@
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Tên Đăng Nhập">
+                            <asp:TemplateField HeaderText="Tên đăng nhập">
                                 <ItemTemplate>
                                     <asp:Label ID="lblUserName" runat="server" Text='<%# Bind("USERNAME") %>'></asp:Label>
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Phòng Ban">
+                            <asp:TemplateField HeaderText="Phòng ban">
                                 <ItemTemplate>
                                     <asp:Label ID="lblCanNang" runat="server" Text='<%# Bind("TENPHONG")%>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Tên Nhân Viên">
+                            <asp:TemplateField HeaderText="Tên nhân viên">
                                 <ItemTemplate>
                                     <asp:Label ID="lblHoTen" runat="server" Text='<%# Bind("HOTEN") %>'></asp:Label>
                                 </ItemTemplate>
@@ -54,7 +54,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa Thông Tin Bệnh Nhân"
+                                    <asp:LinkButton ID="link_del" CommandName="cmdDelete" Text="Xóa" ToolTip="Xóa thông tin bệnh nhân"
                                         runat="server" CommandArgument='<%# Bind("ID")%>' OnClientClick="javascript: return my_confirm();"> 
                                     </asp:LinkButton>
                                     <script>
@@ -72,7 +72,7 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" UseSubmitBehavior="False" />
+                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" UseSubmitBehavior="False" />
                     <br />
                     <asp:Label ID="lblMsgCheck" runat="server" Text=""></asp:Label>
                 </div>
@@ -118,13 +118,13 @@
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    Phòng Ban
+                                    Phòng ban
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                         <ContentTemplate>
                                             <asp:DropDownList ID="DrlPhongBan" runat="server" class="form-control col-md-7 col-xs-12" OnSelectedIndexChanged="DrlPhongBan_SelectedIndexChanged" AutoPostBack="true" AppendDataBoundItems="true" DataTextField="" DataValueField="-1">
-                                                <asp:ListItem>-- Chọn phòng ban --</asp:ListItem>
+                                                <asp:ListItem>-- Chọn Phòng ban --</asp:ListItem>
                                             </asp:DropDownList>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
@@ -133,7 +133,7 @@
                             </div>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    Nhân Viên
+                                    Nhân viên
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">

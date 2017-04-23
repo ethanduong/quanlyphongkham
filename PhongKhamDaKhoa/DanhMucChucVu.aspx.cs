@@ -50,7 +50,7 @@ namespace PhongKhamDaKhoa
         protected void btnThemMoi_Click(object sender, EventArgs e)
         {
 
-            // formHeader.Text = "Thêm Mới Chức Vụ";
+            // formHeader.Text = "Thêm mới Chức Vụ";
             lblAction.Text = "insert";
             lblMsg.Text = string.Empty;
             txtTenCV.Text = string.Empty;
@@ -173,7 +173,7 @@ namespace PhongKhamDaKhoa
 
                         pnlAddNewCV.Visible = false;
                         LoadDataToGridView();
-                        lblMsgCheck.Text = "Đã thêm mới chức vụ !";
+                        lblMsgCheck.Text = "Đã Thêm mới chức vụ !";
                         lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff");
                         txtTenCV.Text = string.Empty;
                     }

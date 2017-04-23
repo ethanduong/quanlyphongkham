@@ -194,7 +194,7 @@ namespace PhongKhamDaKhoa
                         clearForm();
                         LoadDataToGridView();
                         PnlThemMoi.Visible = false;
-                        lblMsgCheck.Text = "Đã thay đổi thông tin nhân viên!";
+                        lblMsgCheck.Text = "Đã thay đổi thông tin Nhân viên!";
                         lblMsgCheck.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0000ff ");
                     }
                     else

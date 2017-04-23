@@ -26,14 +26,14 @@
 
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Phòng Ban">
+                            <asp:TemplateField HeaderText="Phòng ban">
                                 <ItemTemplate>
                                     <asp:Label ID="lblTenPB" runat="server" Text='<%# Bind("TENPHONG")%>'></asp:Label>
                                 </ItemTemplate>
 
                                 <HeaderStyle CssClass="text-center" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Tên Dịch Vụ">
+                            <asp:TemplateField HeaderText="Tên dịch vụ">
                                 <ItemTemplate>
                                     <asp:Label ID="lblTenDV" runat="server" Text='<%# Bind("TENDV") %>'></asp:Label>
                                 </ItemTemplate>
@@ -75,7 +75,7 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm Mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" />
+                    <asp:Button ID="btnThemMoi" runat="server" Text="Thêm mới" CssClass="btn btn-primary" OnClick="btnThemMoi_Click" />
                 </div>
             </div>
         </div>
@@ -110,8 +110,8 @@
                         <br />
                         <%--   <form id="demo-form3" class="form-horizontal form-label-left"> --%>
                         <div class="form-group">
-                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Phòng Ban" runat="server" style="text-align: right">
-                                Tên Phòng Ban <span class="required">*</span>
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Phòng ban" runat="server" style="text-align: right">
+                                Tên phòng ban <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <asp:DropDownList ID="drplControl" runat="server" CssClass="form-control col-md-7 col-xs-12">
@@ -122,19 +122,19 @@
 
 
                         <div class="form-group">
-                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên Dịch Vụ" runat="server" style="text-align: right">
-                                Tên Dịch Vụ <span class="required">*</span>
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="Tên dịch vụ" runat="server" style="text-align: right">
+                                Tên dịch vụ <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                <input type="text" id="txtTenDV" name="Tên Dịch Vụ" runat="server" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="text" id="txtTenDV" name="Tên dịch vụ" runat="server" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
 
                         <div class=" form-group">
-                            <label for="Mô Tả" class="control-label col-md-4 col-sm-4 col-xs-12" runat="server" style="text-align: right">Mô Tả<span class="required">*</span></label>
+                            <label for="Mô tả" class="control-label col-md-4 col-sm-4 col-xs-12" runat="server" style="text-align: right">Mô tả<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="txtMoTa" class="form-control col-md-7 col-xs-12" required="required" type="text" name="Mô Tả" runat="server">
+                                <input id="txtMoTa" class="form-control col-md-7 col-xs-12" required="required" type="text" name="Mô tả" runat="server">
                             </div>
                         </div>
                         <div class="clearfix"></div>
