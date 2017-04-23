@@ -281,7 +281,8 @@ namespace PhongKhamDaKhoa
                     PnlThemMoi.Visible = true;
                     txtUserName.Text = entity.USERNAME;
                     txtUserName.Enabled = false;
-                    txtPassWord.Text = QLPHONGKHAM.Common.decodepass(entity.PASS);
+                    txtPassWord.Text = "";
+                    txtPassWord.ToolTip = "Nhập mật khẩu muốn dùng vào đây";
                     DrlPhongBan.SelectedValue = entity.MAPB.ToString();                    
                     LoadDataToDropdownNhanVien(entity.MAPB);
                     DrdlNhanVien.SelectedValue = entity.MANV.ToString();
