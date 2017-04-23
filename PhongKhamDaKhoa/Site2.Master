@@ -215,7 +215,8 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">
+                                    <img src="images/img.jpg" id="imgtop1" alt="">
+                                    <img src="images/img.jpg" id="imgtop2" alt="">
                                     <asp:Label ID="lblUserLogin1" runat="server" Text=""></asp:Label>
 
 

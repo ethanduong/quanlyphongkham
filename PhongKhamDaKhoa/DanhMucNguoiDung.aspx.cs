@@ -64,7 +64,7 @@ namespace PhongKhamDaKhoa
             dt = QLPHONGKHAM.clsSQLExecute.LoadDataFromDB(strSQL, "TemTB", ref errMsg);
 
             DrlNhanvien.DataSource = dt;
-            DrlNhanvien.DataTextField = "TENNHANVIEN";
+            DrlNhanvien.DataTextField = "HOTEN";
             DrlNhanvien.DataValueField = "MANV";
             DrlNhanvien.DataBind();
 
@@ -207,7 +207,7 @@ namespace PhongKhamDaKhoa
         }
 
 
-        protected void Grv_BenhNhan_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void Grv_NhanVien_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             clsUser_entity entity = new clsUser_entity();
             clsUser_controller controller = new clsUser_controller();
@@ -215,7 +215,7 @@ namespace PhongKhamDaKhoa
             if (e.CommandName.ToString() == "cmdEdit")
             {
                 lblMsgCheck.Text = string.Empty;
-
+                
                 lblIDUpdate.Text = e.CommandArgument.ToString();
                 lblAction.Text = "update";
                 //formHeader.Text = "Cập Nhập Chức Vụ";

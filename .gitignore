@@ -8,6 +8,8 @@
 *.sln.docstates
 Web.config
 Web.*.config
+Web.Debug.config
+Web.Release.config
 PhongKhamDaKhoa/Web.config
 PhongKhamDaKhoa/Web.*.config
 
